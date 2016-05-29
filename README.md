@@ -12,12 +12,14 @@ Please read the document thoroughly, in case there are any questions regarding a
     [rockpaper.dev]$ jspm install 
     [rockpaper.dev]$ npm start  
 ```
-This will start a local server listening on the port 8000. [http://localhost:8000] 
+   This will start a local server listening on the port 8000. [http://localhost:8000]
+    
 2. To execute unit tests and test coverage. The command internally runs jest --coverage followed by jest to run the unit tests  
 ```bash
     $ cd rockpaper.dev
     [rockpaper.dev]$ npm test 
 ```
+
 3. To compile the JavaScript into an executable. 
 ```bash
     $ cd rockpaper.dev
