@@ -4,7 +4,7 @@ Please read the document thoroughly, in case there are any questions regarding a
 
 
 ##How to use this code
-1. To run local server use the following commands [the installation steps are only required if there is a need to recompile the code]. Internally, the script will run python -m SimpleHTTPServer on the "dist" directory.  
+* To run local server use the following commands [the installation steps are only required if there is a need to recompile the code]. Internally, the script will run python -m SimpleHTTPServer on the "dist" directory.  
 ```bash
     $ git clone https://github.com/suhdev/rock-paper-scissors.git rockpaper.dev  
     $ cd rockpaper.dev 
@@ -14,13 +14,13 @@ Please read the document thoroughly, in case there are any questions regarding a
 ```
    This will start a local server listening on the port 8000. [http://localhost:8000]
     
-2. To execute unit tests and test coverage. The command internally runs jest --coverage followed by jest to run the unit tests  
+* To execute unit tests and test coverage. The command internally runs jest --coverage followed by jest to run the unit tests  
 ```bash
     $ cd rockpaper.dev
     [rockpaper.dev]$ npm test 
 ```
 
-3. To compile the JavaScript into an executable. 
+* To compile the JavaScript into an executable. 
 ```bash
     $ cd rockpaper.dev
     [rockpaper.dev]$ jspm bundle-sfx es6/main.js dist/scripts/app.bundle.js 
