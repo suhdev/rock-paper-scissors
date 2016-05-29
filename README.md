@@ -1,5 +1,8 @@
 #Rock Paper Scissors 
 
+Please read the document thoroughly, in case there are any questions regarding anything included in this repository please contact me on [suhail.abood@gmail.com]. 
+
+
 ##How to use this code
 1. To run local server use the following commands [the installation steps are only required if there is a need to recompile the code]. Internally, the script will run python -m SimpleHTTPServer on the "dist" directory.  
 ```bash
@@ -72,6 +75,20 @@ This will start a local server listening on the port 8000. [http://localhost:800
     
     
 Disclaimer: all the code in this repository is my own code. For the implementation I've used two libraries ReactJS and Immutable, which are both maintained by Facebook, and StrikeJS, which is a library that I've developed to write ReactJS applications. For testing I've used "jest" which is a unit testing framework with great support for testing ReactJS applications, the library is also maintained by Facebook. 
+
+##Notes
+1. Due to being involved in some other work, I was unable to allocate more time to the assignment, and hence there are things that can be improved. Including:
+    * Adding tooltips to the buttons on the Game play to provide better visual feedback for users. This can be implemented using CSS3 tooltips i.e. hover state nesting.  
+    * Adding backgrounds to the different game play screens, again this would give better user experience, and due to time limitations I'm unable to invest further time on this. 
+    * Adding user-login system [perhaps backed by the new firebase authentication service] to track users and scores. 
+    * Adding a leaderboard of the game's luckiest player [again this depends on the ability to track users]. 
+    * Adding share buttons to share one's score. 
+2. I've used TypeScript mainly for its static type-checking which helps a lot in writing bug-free code. 
+3. I've used ReactJS over other frameworks mainly because of the ability to force one's mind to think of the view as a function of the application state. 
+4. I've used StrikeJS [my implementation of the redux architecture], mainly because it keeps the application state in a single store which makes it easier to think about. It also helps in application debugging as the whole state of the application can be dumped at any given instant. 
+5. Facebook's Immutable library has been used for performance reasons. It helps in replacing deep object comparisons to a single '===' comparison.  
+6. PLEASE: regardless of the outcomes of the review, I would really appreciate any comments that can help improve my workflow, my code, or anything I've done here. 
+
 
 ##Resources
 1. https://facebook.github.io/react/
