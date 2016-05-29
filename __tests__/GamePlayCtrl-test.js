@@ -1,5 +1,6 @@
 jest.unmock("../es6/controllers/GamePlay/GamePlay");
 jest.unmock("../es6/controllers/GamePlay/GameResults");
+jest.unmock('../es6/services/GameModels');
 jest.unmock("strikejs");
 jest.unmock("../es6/controllers/GamePlay/Reducer");
 jest.unmock("../es6/controllers/GamePlay/Actions");

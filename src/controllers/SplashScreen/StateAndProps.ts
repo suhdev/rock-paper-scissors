@@ -14,6 +14,15 @@ export interface SplashScreenProps extends ControllerViewProps{
     onOpenInfo:Function;
 }
 
+/**
+ * SplashScreenCtrl state 
+ * @export
+ * @interface SplashScreenState
+ */
 export interface SplashScreenState {
+    /**
+     * Whether the screen is visible or not. 
+     * @type {boolean}
+     */
     visible:boolean;
 }

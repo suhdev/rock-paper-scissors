@@ -11,9 +11,19 @@ export const AppInitialState:AppState = {
 }
 
 export interface AppProps extends ControllerViewProps{
-    injector:Injector;
+    
 }
 
+/**
+ * AppCtrl state
+ * 
+ * @export
+ * @interface AppState
+ */
 export interface AppState {
+    /**
+     * Whether the info dialog is visible or not
+     * @type {boolean}
+     */
     infoDialogVisible:boolean;
 }

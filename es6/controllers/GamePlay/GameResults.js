@@ -1,4 +1,12 @@
 import { PLAYER_TYPE } from '../../constants';
+/**
+ * Generates the round text to be displayed at the end of each round.
+ *
+ * @param {Player} player1 the first player {ComputerPlayer}
+ * @param {Player} player2 the second player either a {ComputerPlayer} in simulated mode or a {UserPlayer} in user play mode.
+ *
+ * @returns string representing the round result text.
+ */
 export function formatRoundWinnerText(player1, player2) {
     let winner = null, sb = [];
     if (player1 && player1.state && player2 && player2.state) {
@@ -17,6 +25,14 @@ export function formatRoundWinnerText(player1, player2) {
     }
     return sb.join("");
 }
+/**
+ * Generates the text of the hands played by each player to be displayed at the end of each round.
+ *
+ * @param {Player} player1 the first player {ComputerPlayer}
+ * @param {Player} player2 the second player either a {ComputerPlayer} in simulated mode or a {UserPlayer} in user play mode.
+ *
+ * @returns string representing the hands played by both players.
+ */
 export function formatHandsText(player1, player2) {
     let sb = [];
     if (player1 && player2 && player1.state && player2.state) {
@@ -25,6 +41,14 @@ export function formatHandsText(player1, player2) {
     }
     return sb.join("");
 }
+/**
+ * Generates the game finish text to be displayed when the game finishes.
+ *
+ * @param {Player} player1 the first player {ComputerPlayer}
+ * @param {Player} player2 the second player either a {ComputerPlayer} in simulated mode or a {UserPlayer} in user play mode.
+ *
+ * @returns string representing the game finnish text.
+ */
 export function formatGameFinishText(player1, player2) {
     let sb = [];
     if (player1 && player1.state && player2 && player2.state) {

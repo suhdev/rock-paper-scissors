@@ -5,7 +5,7 @@ import {ControllerView} from 'strikejs';
 import {ACTIONS} from './Actions'; 
 import {GAME_MODES,PLAYER_TYPE,PLAY_STATES,SIMULATION_TIMEOUT,COMPUTER_HAND_CHANGE_INTERVAL} from '../../constants'; 
 import {ACTIONS as APP_ACTIONS} from '../App/Actions'; 
-import {PlayState,UserPlayer} from '../../services/GameController'; 
+import {PlayState,UserPlayer} from '../../services/GameModels'; 
 import {GamePlayInitialState,GamePlayProps,GamePlayState,STATE_KEY} from './StateAndProps';
 import {Reducer} from './Reducer'; 
 import {Button} from '../../ui/Button'; 

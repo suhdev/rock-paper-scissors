@@ -1,7 +1,7 @@
 jest.unmock("../es6/controllers/GamePlay/GameResults");
-jest.unmock("../es6/services/GameController");
+jest.unmock("../es6/services/GameModels");
 
-import {Player,UserPlayer,ComputerPlayer} from '../es6/services/GameController';
+import {Player,UserPlayer,ComputerPlayer} from '../es6/services/GameModels';
 import {formatGameFinishText,formatHandsText,formatRoundWinnerText} from '../es6/controllers/GamePlay/GameResults';
 import {GamePlayInitialState,STATE_KEY} from '../es6/controllers/GamePlay/StateAndProps';
 import {GAME_MODES,PLAY_STATES} from '../es6/constants'; 

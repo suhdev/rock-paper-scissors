@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1464542755424" clover="3.2.0">
-	<project timestamp="1464542755424"  name="All Files" >
-		<metrics statements="251"  coveredstatements="248"  conditionals="358"  coveredconditionals="247"  methods="110"  coveredmethods="107"  elements="719"  coveredelements="602"  complexity="0"  packages="6"  files="18"  classes="18"  loc="573"  ncloc="573" />
+<coverage generated="1464549106813" clover="3.2.0">
+	<project timestamp="1464549106813"  name="All Files" >
+		<metrics statements="236"  coveredstatements="233"  conditionals="358"  coveredconditionals="244"  methods="110"  coveredmethods="107"  elements="704"  coveredelements="584"  complexity="0"  packages="6"  files="18"  classes="18"  loc="646"  ncloc="646" />
 		<package name="es6" >
 			<metrics statements="10"  coveredstatements="10"  conditionals="0"  coveredconditionals="0"  methods="0"  coveredmethods="0" />
 			<file name="constants.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/constants.js" >
@@ -19,26 +19,22 @@
 			</file>
 		</package>
 		<package name="es6.controllers.App" >
-			<metrics statements="17"  coveredstatements="17"  conditionals="3"  coveredconditionals="3"  methods="2"  coveredmethods="2" />
+			<metrics statements="13"  coveredstatements="13"  conditionals="3"  coveredconditionals="3"  methods="2"  coveredmethods="2" />
 			<file name="Actions.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/App/Actions.js" >
 				<metrics statements="5"  coveredstatements="5"  conditionals="0"  coveredconditionals="0"  methods="1"  coveredmethods="1" />
 				<line num="1"  count="1"  type="stmt" />
 				<line num="2"  count="1"  type="stmt" />
 				<line num="6"  count="1"  type="stmt" />
-				<line num="13"  count="1"  type="stmt" />
-				<line num="19"  count="2"  type="stmt" />
+				<line num="19"  count="1"  type="stmt" />
+				<line num="30"  count="2"  type="stmt" />
 			</file>
 			<file name="Reducer.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/App/Reducer.js" >
-				<metrics statements="9"  coveredstatements="9"  conditionals="3"  coveredconditionals="3"  methods="1"  coveredmethods="1" />
+				<metrics statements="5"  coveredstatements="5"  conditionals="3"  coveredconditionals="3"  methods="1"  coveredmethods="1" />
 				<line num="1"  count="1"  type="stmt" />
-				<line num="3"  count="1"  type="stmt" />
-				<line num="4"  count="3"  type="stmt" />
-				<line num="5"  count="3"  type="stmt" />
-				<line num="6"  count="3"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="7"  count="2"  type="cond"  truecount="1"  falsecount="0" />
-				<line num="9"  count="2"  type="stmt" />
-				<line num="10"  count="2"  type="stmt" />
-				<line num="13"  count="3"  type="stmt" />
+				<line num="10"  count="1"  type="stmt" />
+				<line num="16"  count="3"  type="cond"  truecount="3"  falsecount="0" />
+				<line num="17"  count="2"  type="stmt" />
+				<line num="20"  count="3"  type="stmt" />
 			</file>
 			<file name="StateAndProps.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/App/StateAndProps.js" >
 				<metrics statements="3"  coveredstatements="3"  conditionals="0"  coveredconditionals="0"  methods="0"  coveredmethods="0" />
@@ -48,16 +44,16 @@
 			</file>
 		</package>
 		<package name="es6.controllers.GamePlay" >
-			<metrics statements="133"  coveredstatements="130"  conditionals="142"  coveredconditionals="118"  methods="35"  coveredmethods="34" />
+			<metrics statements="123"  coveredstatements="120"  conditionals="142"  coveredconditionals="115"  methods="35"  coveredmethods="34" />
 			<file name="Actions.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/GamePlay/Actions.js" >
 				<metrics statements="4"  coveredstatements="4"  conditionals="0"  coveredconditionals="0"  methods="1"  coveredmethods="1" />
 				<line num="1"  count="4"  type="stmt" />
-				<line num="2"  count="4"  type="stmt" />
-				<line num="9"  count="4"  type="stmt" />
-				<line num="15"  count="13"  type="stmt" />
+				<line num="5"  count="4"  type="stmt" />
+				<line num="14"  count="4"  type="stmt" />
+				<line num="20"  count="13"  type="stmt" />
 			</file>
 			<file name="GamePlay.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/GamePlay/GamePlay.js" >
-				<metrics statements="64"  coveredstatements="61"  conditionals="81"  coveredconditionals="58"  methods="25"  coveredmethods="24" />
+				<metrics statements="64"  coveredstatements="61"  conditionals="81"  coveredconditionals="56"  methods="25"  coveredmethods="24" />
 				<line num="1"  count="11"  type="cond"  truecount="8"  falsecount="10" />
 				<line num="2"  count="1"  type="stmt" />
 				<line num="3"  count="1"  type="stmt" />
@@ -108,8 +104,8 @@
 				<line num="115"  count="2"  type="stmt" />
 				<line num="116"  count="2"  type="stmt" />
 				<line num="117"  count="2"  type="stmt" />
-				<line num="118"  count="2"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="119"  count="1"  type="stmt" />
+				<line num="118"  count="2"  type="cond"  truecount="1"  falsecount="1" />
+				<line num="119"  count="2"  type="stmt" />
 				<line num="122"  count="3"  type="stmt" />
 				<line num="123"  count="2"  type="stmt" />
 				<line num="131"  count="6"  type="stmt" />
@@ -119,76 +115,66 @@
 				<line num="145"  count="6"  type="stmt" />
 				<line num="152"  count="1"  type="stmt" />
 				<line num="157"  count="18"  type="stmt" />
-				<line num="158"  count="18"  type="cond"  truecount="8"  falsecount="0" />
+				<line num="158"  count="18"  type="cond"  truecount="7"  falsecount="1" />
 				<line num="159"  count="54"  type="stmt" />
 				<line num="161"  count="18"  type="cond"  truecount="8"  falsecount="0" />
 			</file>
 			<file name="GameResults.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/GamePlay/GameResults.js" >
-				<metrics statements="17"  coveredstatements="17"  conditionals="38"  coveredconditionals="37"  methods="3"  coveredmethods="3" />
+				<metrics statements="8"  coveredstatements="8"  conditionals="38"  coveredconditionals="36"  methods="3"  coveredmethods="3" />
 				<line num="1"  count="2"  type="stmt" />
-				<line num="2"  count="2"  type="stmt" />
-				<line num="20"  count="2"  type="stmt" />
-				<line num="28"  count="39"  type="cond"  truecount="22"  falsecount="0" />
-				<line num="29"  count="23"  type="stmt" />
-				<line num="30"  count="23"  type="cond"  truecount="6"  falsecount="0" />
-				<line num="31"  count="16"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="32"  count="6"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="33"  count="3"  type="stmt" />
-				<line num="36"  count="3"  type="stmt" />
-				<line num="39"  count="10"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="40"  count="5"  type="stmt" />
-				<line num="42"  count="5"  type="cond"  truecount="1"  falsecount="1" />
-				<line num="43"  count="5"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="44"  count="4"  type="stmt" />
-				<line num="47"  count="1"  type="stmt" />
-				<line num="51"  count="23"  type="stmt" />
+				<line num="10"  count="2"  type="stmt" />
+				<line num="36"  count="2"  type="stmt" />
+				<line num="52"  count="2"  type="stmt" />
+				<line num="59"  count="21"  type="cond"  truecount="15"  falsecount="1" />
+				<line num="66"  count="39"  type="cond"  truecount="6"  falsecount="0" />
+				<line num="73"  count="23"  type="cond"  truecount="15"  falsecount="1" />
+				<line num="75"  count="23"  type="stmt" />
 			</file>
 			<file name="Reducer.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/GamePlay/Reducer.js" >
-				<metrics statements="44"  coveredstatements="44"  conditionals="23"  coveredconditionals="23"  methods="6"  coveredmethods="6" />
+				<metrics statements="43"  coveredstatements="43"  conditionals="23"  coveredconditionals="23"  methods="6"  coveredmethods="6" />
 				<line num="1"  count="2"  type="stmt" />
-				<line num="5"  count="2"  type="stmt" />
-				<line num="6"  count="34"  type="stmt" />
-				<line num="7"  count="34"  type="stmt" />
-				<line num="8"  count="34"  type="cond"  truecount="4"  falsecount="0" />
-				<line num="10"  count="33"  type="cond"  truecount="5"  falsecount="0" />
 				<line num="12"  count="2"  type="stmt" />
-				<line num="13"  count="2"  type="stmt" />
-				<line num="14"  count="2"  type="stmt" />
-				<line num="15"  count="2"  type="stmt" />
-				<line num="16"  count="2"  type="stmt" />
-				<line num="17"  count="2"  type="stmt" />
 				<line num="18"  count="2"  type="stmt" />
+				<line num="19"  count="34"  type="stmt" />
+				<line num="21"  count="34"  type="cond"  truecount="9"  falsecount="0" />
+				<line num="22"  count="2"  type="stmt" />
 				<line num="23"  count="2"  type="stmt" />
-				<line num="25"  count="7"  type="stmt" />
-				<line num="26"  count="7"  type="cond"  truecount="4"  falsecount="0" />
-				<line num="27"  count="7"  type="stmt" />
-				<line num="34"  count="7"  type="stmt" />
-				<line num="36"  count="13"  type="stmt" />
-				<line num="37"  count="13"  type="stmt" />
-				<line num="38"  count="13"  type="stmt" />
-				<line num="39"  count="13"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="40"  count="3"  type="stmt" />
-				<line num="41"  count="3"  type="stmt" />
-				<line num="43"  count="10"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="44"  count="6"  type="stmt" />
-				<line num="45"  count="6"  type="stmt" />
-				<line num="47"  count="13"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="48"  count="7"  type="stmt" />
-				<line num="50"  count="6"  type="cond"  truecount="2"  falsecount="0" />
+				<line num="24"  count="2"  type="stmt" />
+				<line num="25"  count="2"  type="stmt" />
+				<line num="26"  count="2"  type="stmt" />
+				<line num="27"  count="2"  type="stmt" />
+				<line num="28"  count="2"  type="stmt" />
+				<line num="33"  count="2"  type="stmt" />
+				<line num="35"  count="7"  type="stmt" />
+				<line num="36"  count="7"  type="cond"  truecount="4"  falsecount="0" />
+				<line num="37"  count="7"  type="stmt" />
+				<line num="44"  count="7"  type="stmt" />
+				<line num="46"  count="13"  type="stmt" />
+				<line num="47"  count="13"  type="stmt" />
+				<line num="48"  count="13"  type="stmt" />
+				<line num="49"  count="13"  type="cond"  truecount="2"  falsecount="0" />
+				<line num="50"  count="3"  type="stmt" />
 				<line num="51"  count="3"  type="stmt" />
-				<line num="53"  count="13"  type="cond"  truecount="2"  falsecount="0" />
-				<line num="54"  count="2"  type="stmt" />
-				<line num="57"  count="11"  type="stmt" />
-				<line num="59"  count="13"  type="stmt" />
-				<line num="63"  count="13"  type="stmt" />
-				<line num="65"  count="9"  type="stmt" />
-				<line num="66"  count="9"  type="stmt" />
-				<line num="67"  count="9"  type="stmt" />
-				<line num="71"  count="9"  type="stmt" />
-				<line num="85"  count="2"  type="stmt" />
-				<line num="86"  count="2"  type="stmt" />
-				<line num="91"  count="2"  type="stmt" />
-				<line num="94"  count="34"  type="stmt" />
+				<line num="53"  count="10"  type="cond"  truecount="2"  falsecount="0" />
+				<line num="54"  count="5"  type="stmt" />
+				<line num="55"  count="5"  type="stmt" />
+				<line num="57"  count="13"  type="cond"  truecount="2"  falsecount="0" />
+				<line num="58"  count="5"  type="stmt" />
+				<line num="60"  count="8"  type="cond"  truecount="2"  falsecount="0" />
+				<line num="61"  count="1"  type="stmt" />
+				<line num="63"  count="13"  type="cond"  truecount="2"  falsecount="0" />
+				<line num="64"  count="2"  type="stmt" />
+				<line num="67"  count="11"  type="stmt" />
+				<line num="69"  count="13"  type="stmt" />
+				<line num="73"  count="13"  type="stmt" />
+				<line num="75"  count="9"  type="stmt" />
+				<line num="76"  count="9"  type="stmt" />
+				<line num="77"  count="9"  type="stmt" />
+				<line num="81"  count="9"  type="stmt" />
+				<line num="83"  count="2"  type="stmt" />
+				<line num="84"  count="2"  type="stmt" />
+				<line num="89"  count="2"  type="stmt" />
+				<line num="92"  count="34"  type="stmt" />
 			</file>
 			<file name="StateAndProps.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/GamePlay/StateAndProps.js" >
 				<metrics statements="4"  coveredstatements="4"  conditionals="0"  coveredconditionals="0"  methods="0"  coveredmethods="0" />
@@ -199,7 +185,7 @@
 			</file>
 		</package>
 		<package name="es6.controllers.SplashScreen" >
-			<metrics statements="39"  coveredstatements="39"  conditionals="51"  coveredconditionals="29"  methods="16"  coveredmethods="16" />
+			<metrics statements="38"  coveredstatements="38"  conditionals="51"  coveredconditionals="29"  methods="16"  coveredmethods="16" />
 			<file name="Actions.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/SplashScreen/Actions.js" >
 				<metrics statements="5"  coveredstatements="5"  conditionals="0"  coveredconditionals="0"  methods="1"  coveredmethods="1" />
 				<line num="1"  count="4"  type="stmt" />
@@ -209,21 +195,18 @@
 				<line num="14"  count="9"  type="stmt" />
 			</file>
 			<file name="Reducer.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/SplashScreen/Reducer.js" >
-				<metrics statements="11"  coveredstatements="11"  conditionals="6"  coveredconditionals="6"  methods="1"  coveredmethods="1" />
+				<metrics statements="8"  coveredstatements="8"  conditionals="6"  coveredconditionals="6"  methods="1"  coveredmethods="1" />
 				<line num="1"  count="2"  type="stmt" />
-				<line num="4"  count="2"  type="stmt" />
-				<line num="5"  count="4"  type="stmt" />
-				<line num="6"  count="4"  type="stmt" />
-				<line num="7"  count="4"  type="cond"  truecount="4"  falsecount="0" />
-				<line num="9"  count="3"  type="cond"  truecount="2"  falsecount="0" />
 				<line num="11"  count="2"  type="stmt" />
-				<line num="12"  count="2"  type="stmt" />
-				<line num="14"  count="1"  type="stmt" />
-				<line num="15"  count="1"  type="stmt" />
-				<line num="18"  count="4"  type="stmt" />
+				<line num="17"  count="4"  type="cond"  truecount="6"  falsecount="0" />
+				<line num="18"  count="2"  type="stmt" />
+				<line num="19"  count="2"  type="stmt" />
+				<line num="21"  count="1"  type="stmt" />
+				<line num="22"  count="1"  type="stmt" />
+				<line num="25"  count="4"  type="stmt" />
 			</file>
 			<file name="SplashScreen.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/SplashScreen/SplashScreen.js" >
-				<metrics statements="20"  coveredstatements="20"  conditionals="45"  coveredconditionals="23"  methods="14"  coveredmethods="14" />
+				<metrics statements="22"  coveredstatements="22"  conditionals="45"  coveredconditionals="23"  methods="14"  coveredmethods="14" />
 				<line num="1"  count="4"  type="cond"  truecount="8"  falsecount="10" />
 				<line num="2"  count="1"  type="stmt" />
 				<line num="3"  count="1"  type="stmt" />
@@ -234,16 +217,18 @@
 				<line num="8"  count="1"  type="stmt" />
 				<line num="9"  count="1"  type="stmt" />
 				<line num="10"  count="26"  type="cond"  truecount="15"  falsecount="12" />
-				<line num="11"  count="1"  type="stmt" />
-				<line num="12"  count="1"  type="stmt" />
-				<line num="14"  count="1"  type="stmt" />
 				<line num="16"  count="1"  type="stmt" />
-				<line num="19"  count="1"  type="stmt" />
+				<line num="17"  count="1"  type="stmt" />
+				<line num="18"  count="1"  type="stmt" />
+				<line num="20"  count="1"  type="stmt" />
 				<line num="22"  count="1"  type="stmt" />
-				<line num="23"  count="1"  type="stmt" />
-				<line num="24"  count="1"  type="stmt" />
 				<line num="27"  count="1"  type="stmt" />
-				<line num="30"  count="2"  type="stmt" />
+				<line num="29"  count="1"  type="stmt" />
+				<line num="37"  count="1"  type="stmt" />
+				<line num="38"  count="1"  type="stmt" />
+				<line num="39"  count="1"  type="stmt" />
+				<line num="48"  count="1"  type="stmt" />
+				<line num="51"  count="2"  type="stmt" />
 			</file>
 			<file name="StateAndProps.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/controllers/SplashScreen/StateAndProps.js" >
 				<metrics statements="3"  coveredstatements="3"  conditionals="0"  coveredconditionals="0"  methods="0"  coveredmethods="0" />
@@ -254,7 +239,7 @@
 		</package>
 		<package name="es6.services" >
 			<metrics statements="25"  coveredstatements="25"  conditionals="33"  coveredconditionals="17"  methods="22"  coveredmethods="20" />
-			<file name="GameController.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/services/GameController.js" >
+			<file name="GameModels.js"  path="/Users/suhail/Sites/rockpaper.dev/es6/services/GameModels.js" >
 				<metrics statements="25"  coveredstatements="25"  conditionals="33"  coveredconditionals="17"  methods="22"  coveredmethods="20" />
 				<line num="1"  count="57"  type="cond"  truecount="15"  falsecount="12" />
 				<line num="3"  count="29"  type="stmt" />
@@ -262,12 +247,12 @@
 				<line num="5"  count="29"  type="stmt" />
 				<line num="6"  count="29"  type="stmt" />
 				<line num="7"  count="29"  type="stmt" />
-				<line num="10"  count="135"  type="stmt" />
+				<line num="10"  count="137"  type="stmt" />
 				<line num="13"  count="17"  type="stmt" />
-				<line num="16"  count="35"  type="stmt" />
-				<line num="19"  count="68"  type="stmt" />
+				<line num="16"  count="31"  type="stmt" />
+				<line num="19"  count="58"  type="stmt" />
 				<line num="22"  count="1"  type="stmt" />
-				<line num="25"  count="10"  type="stmt" />
+				<line num="25"  count="9"  type="stmt" />
 				<line num="28"  count="4"  type="stmt" />
 				<line num="29"  count="15"  type="stmt" />
 				<line num="30"  count="4"  type="stmt" />

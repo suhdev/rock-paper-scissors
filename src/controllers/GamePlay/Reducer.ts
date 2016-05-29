@@ -1,10 +1,20 @@
 import {Action} from 'strikejs'; 
 import {START_MASK,SPLASH_START,GAME_START,GAME_MODES} from '../../constants';
 import {TYPES as SPLASH_TYPES} from '../SplashScreen/Actions'; 
-import {ComputerPlayer,UserPlayer,Player} from '../../services/GameController';
+import {ComputerPlayer,UserPlayer,Player} from '../../services/GameModels';
 import {TYPES} from './Actions';
+/**
+ * GamePlayCtrl reducer function. Reducer functions receive the current state of their controllers and the currently dispatched action,
+ * and they return the new state of their controllers. 
+ * 
+ * @param {Immutable.Map<string,any>} state the current state of {GamePlayCtrl} 
+ * @param {Action} action the currently dispatched action. 
+ */
 export function Reducer(state:Immutable.Map<string,any>,action:Action):Immutable.Map<string,any>{
+    //create a reference to the current state. 
     let newState = state;
+    //mask the action space bits such that we can perform a quick check to see if we need to  
+    //handle this action or not. This technique is mainly used for performance reasons and can be skipped on smaller applications. 
     let v = action.type & START_MASK; 
     if (v === SPLASH_START ||
         v === GAME_START){
@@ -77,18 +87,6 @@ export function Reducer(state:Immutable.Map<string,any>,action:Action):Immutable
                     .set('playing',true);
             });
             break;
-            // case TYPES.FINISH:
-            // newState = newState.withMutations((m)=>{
-            //     let player1 = m.get('player1'),
-            //         player2 = m.get('player2'); 
-            //     player1.setScore(0);
-            //     player2.setScore(0); 
-            //     m.set('round',1)
-            //      .set('finishCardVisible',false)
-            //      .set('roundWinner',null)
-            //      .set('gameWinner',null);
-            // });
-            // break;
             case TYPES.MAIN_MENU:
             newState = newState.withMutations((m)=>{
                 m.set('playing',false)

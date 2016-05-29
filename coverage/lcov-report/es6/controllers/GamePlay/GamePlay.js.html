@@ -25,9 +25,9 @@
         <span class='fraction'>110/127</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">71.6% </span>
+        <span class="strong">69.14% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>58/81</span>
+        <span class='fraction'>56/81</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">96% </span>
@@ -324,7 +324,7 @@
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3×</span>
@@ -486,7 +486,7 @@ export class GamePlayCtrl extends ControllerView {
                 icon2.className = PLAY_STATES[start2].icon;
                 label2.innerHTML = PLAY_STATES[start2].label;
                 start2++;
-                if (start2 === PLAY_STATES.length) {
+                if (<span class="missing-if-branch" title="else path not taken" >E</span>start2 === PLAY_STATES.length) {
                     start2 = 0;
                 }
             }, COMPUTER_HAND_CHANGE_INTERVAL);
@@ -526,7 +526,7 @@ export class GamePlayCtrl extends ControllerView {
      * Renders the component.
      */
     render() {
-        let state = this.state, player1 = state.player1, player2 = state.player2, roundWinner = state.roundWinner, gameWinner = state.gameWinner, gameMode = state.gameMode, roundText = state.roundWinner === player2 ? "You win this round!" : (state.roundWinner === player1) ? "You lose this round!" : "Draw", computerBtn = (React.createElement("div", {className: "of-btn info", key: "computer-btn-2"}, React.createElement("i", {className: player1.state &amp;&amp; player1.state.icon, ref: "computerIcon2"}), React.createElement("span", {ref: "computerLabel2"}, player2.state &amp;&amp; player2.state.label))), btns = PLAY_STATES.map((e, i) =&gt; {
+        let state = this.state, player1 = state.player1, player2 = state.player2, roundWinner = state.roundWinner, gameWinner = state.gameWinner, gameMode = state.gameMode, roundText = state.roundWinner === player2 ? "You<span class="branch-0 cbranch-no" title="branch not covered" > win this round!" : (s</span>tate.roundWinner === player1) ? "You lose this round!" : "Draw", computerBtn = (React.createElement("div", {className: "of-btn info", key: "computer-btn-2"}, React.createElement("i", {className: player1.state &amp;&amp; player1.state.icon, ref: "computerIcon2"}), React.createElement("span", {ref: "computerLabel2"}, player2.state &amp;&amp; player2.state.label))), btns = PLAY_STATES.map((e, i) =&gt; {
             return (React.createElement(Button, {key: e.label, label: e.label, icon: e.icon, className: "info btn-item-" + i, onClick: this.onChoice, userData: e}));
         });
         return (React.createElement("div", {className: "window-screen", id: "GamePlayCtrl", key: "container-1x", "data-visible": this.state.visible}, React.createElement("div", {className: "screen-wrapper", key: "container-2x"}, React.createElement(Logo, {image: "/img/rock-paper-scissors-logo.png", className: "app-logo"}), React.createElement("div", {className: "game-title"}, player2.getLabel() + " vs " + player1.getLabel()), React.createElement("div", {className: "game-round-count"}, "Round ", state.round, " of ", state.maxRounds, " "), React.createElement("div", {className: "player-section player-1"}, React.createElement("h2", {className: "section-title"}, player1.getLabel()), React.createElement("div", {className: "of-btn"}, React.createElement("i", {className: player1.state &amp;&amp; player1.state.icon, ref: "computerIcon"}), React.createElement("span", {ref: "computerLabel"}, player1.state &amp;&amp; player1.state.label))), React.createElement("div", {className: player2.is(PLAYER_TYPE.USER) ? "player-section player-2" : "player-section player-2 computer"}, React.createElement("h2", {className: "section-title"}, player2.getLabel()), gameMode === GAME_MODES.PLAYER_VS_COMPUTER ? btns : computerBtn), React.createElement(Dialog, {visible: state.roundCardVisible, onClose: this.onNextRound}, React.createElement("h2", {className: "round-title"}, state.round, " of ", state.maxRounds), React.createElement("div", {className: "round-description", key: "round-hands"}, formatHandsText(player1, player2)), React.createElement("div", {className: "round-description", key: "round-result"}, formatRoundWinnerText(player1, player2)), React.createElement(Button, {onClick: this.onNextRound, label: "Next Round", className: "next-round-btn"})), React.createElement(Dialog, {visible: state.finishCardVisible, onClose: this.onRestart}, React.createElement("h2", {className: "round-title"}, state.round, " of ", state.maxRounds), React.createElement("div", {className: "round-description", key: "round-hands"}, formatHandsText(player1, player2)), React.createElement("div", {className: "round-description", key: "round-result-2"}, formatGameFinishText(player1, player2)), React.createElement(Button, {onClick: this.onRestart, label: "Play Again"}), React.createElement(Button, {onClick: this.onMainMenu, label: "Main Menu"})))));
@@ -538,7 +538,7 @@ export class GamePlayCtrl extends ControllerView {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 29 2016 18:25:55 GMT+0100 (BST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 29 2016 20:11:46 GMT+0100 (BST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

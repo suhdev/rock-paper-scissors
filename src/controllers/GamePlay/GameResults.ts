@@ -1,5 +1,14 @@
-import {Player} from '../../services/GameController';
+//This file includes functions to format game results, i.e. round results, hands play results, and final result. 
+import {Player,ComputerPlayer,UserPlayer} from '../../services/GameModels';
 import {PLAYER_TYPE} from '../../constants';  
+/**
+ * Generates the round text to be displayed at the end of each round. 
+ * 
+ * @param {Player} player1 the first player {ComputerPlayer}
+ * @param {Player} player2 the second player either a {ComputerPlayer} in simulated mode or a {UserPlayer} in user play mode. 
+ * 
+ * @returns string representing the round result text. 
+ */
 export function formatRoundWinnerText(player1:Player,player2:Player){
     let winner:Player = null,
         sb:string[] = [];
@@ -19,6 +28,14 @@ export function formatRoundWinnerText(player1:Player,player2:Player){
     return sb.join("");
 }
 
+/**
+ * Generates the text of the hands played by each player to be displayed at the end of each round. 
+ * 
+ * @param {Player} player1 the first player {ComputerPlayer}
+ * @param {Player} player2 the second player either a {ComputerPlayer} in simulated mode or a {UserPlayer} in user play mode. 
+ * 
+ * @returns string representing the hands played by both players.  
+ */
 export function formatHandsText(player1:Player,player2:Player){
     let sb:string[] = [];
     if (player1 && player2 && player1.state && player2.state){
@@ -28,6 +45,14 @@ export function formatHandsText(player1:Player,player2:Player){
     return sb.join("");
 }
 
+/**
+ * Generates the game finish text to be displayed when the game finishes. 
+ * 
+ * @param {Player} player1 the first player {ComputerPlayer}
+ * @param {Player} player2 the second player either a {ComputerPlayer} in simulated mode or a {UserPlayer} in user play mode. 
+ * 
+ * @returns string representing the game finnish text. 
+ */
 export function formatGameFinishText(player1:Player,player2:Player){
     let sb:string[] = []; 
     if (player1 && player1.state && player2 && player2.state){

@@ -27,6 +27,13 @@ $__System.register('2', [], function (_export) {
     };
 });
 $__System.register('3', ['4', '5'], function (_export) {
+    /**
+     * AppCtrl reducer function. Reducer functions receive the current state of their controllers and the currently dispatched action,
+     * and they return the new state of their controllers.
+     *
+     * @param {Immutable.Map<string,any>} state the current state of {AppCtrl}
+     * @param {Action} action the currently dispatched action.
+     */
     'use strict';
 
     var APP_START, START_MASK, TYPES;
@@ -59,47 +66,58 @@ $__System.register('3', ['4', '5'], function (_export) {
     };
 });
 $__System.register('5', ['4'], function (_export) {
-    //This file includes Action definitions for the App controller.
+  //This file includes Action definitions for the App controller.
 
-    /**
-     * Defines action types for the App controller
-     */
-    'use strict';
+  /**
+   * Defines action types for the App controller
+   */
+  'use strict';
 
-    var START, TYPES, ACTIONS;
-    return {
-        setters: [function (_) {
-            START = _.APP_START;
-        }],
-        execute: function () {
-            TYPES = {
-                INIT: START | 0x00001,
-                INFO_ACTION: START | 0x00002
-            };
+  var START, TYPES, ACTIONS;
+  return {
+    setters: [function (_) {
+      START = _.APP_START;
+    }],
+    execute: function () {
+      TYPES = {
+        /**
+         * Fired upon application initialization
+         */
+        INIT: START | 0x00001,
+        /**
+         * Fired when either the info button is clicked or the close button of on the info dialog is clicked.
+         */
+        INFO_ACTION: START | 0x00002
+      };
 
-            _export('TYPES', TYPES);
+      _export('TYPES', TYPES);
 
-            /**
-             * Defines actions for the App controller
-             */
-            ACTIONS = {
-                INIT: {
-                    type: TYPES.INIT,
-                    data: {}
-                },
-                INFO_ACTION: function INFO_ACTION(e) {
-                    return {
-                        type: TYPES.INFO_ACTION,
-                        data: e
-                    };
-                }
-            };
-
-            _export('ACTIONS', ACTIONS);
-
-            
+      /**
+       * Defines actions for the App controller
+       */
+      ACTIONS = {
+        INIT: {
+          type: TYPES.INIT,
+          data: {}
+        },
+        /**
+         * Fired when either the info button is clicked or the close button of on the info dialog is clicked.
+         *
+         * @param {boolean} e true or false depending on whether to show or hide the info dialog.
+         */
+        INFO_ACTION: function INFO_ACTION(e) {
+          return {
+            type: TYPES.INFO_ACTION,
+            data: e
+          };
         }
-    };
+      };
+
+      _export('ACTIONS', ACTIONS);
+
+      
+    }
+  };
 });
 $__System.register('6', [], function (_export) {
     //StrikeJS is a library that I've built to write ReactJS applications.
@@ -126,6 +144,13 @@ $__System.register('6', [], function (_export) {
     };
 });
 $__System.register('7', ['4', '8', '9'], function (_export) {
+    /**
+     * SplashScreenCtrl reducer function. Reducer functions receive the current state of their controllers and the currently dispatched action,
+     * and they return the new state of their controllers.
+     *
+     * @param {Immutable.Map<string,any>} state the current state of {SplashScreenCtrl}
+     * @param {Action} action the currently dispatched action.
+     */
     'use strict';
 
     var START_MASK, GAME_START, SPLASH_START, GAME_TYPES, TYPES;
@@ -198,6 +223,12 @@ $__System.register('a', ['4', '6', '7', '9', '10', '11', '12', '13', '14', 'f', 
             Logo = _e.Logo;
         }],
         execute: function () {
+            /**
+             * A ReactJS component that manages the splash screen i.e. the game's entry screen.
+             * @export
+             * @class SplashScreenCtrl
+             * @extends {ControllerView<SplashScreenProps, SplashScreenState>}
+             */
             'use strict';
 
             SplashScreenCtrl = (function (_ControllerView) {
@@ -214,11 +245,22 @@ $__System.register('a', ['4', '6', '7', '9', '10', '11', '12', '13', '14', 'f', 
 
                 
 
+                /**
+                 * Called upon selected a mode.
+                 * @param {string} type one of the available {GAME_MODES}
+                 */
+
                 _createClass(SplashScreenCtrl, [{
                     key: 'onModeSelected',
                     value: function onModeSelected(type) {
                         this._storeInstance.dispatch(ACTIONS.START(type));
                     }
+
+                    /**
+                     * ControllerView internally attaches itself to the store in its componentDidMount method and hence calling super.componentDidMount().
+                     * In future releases of StrikeJS the following two lines can be included inside ControllerView componentDidMount method.
+                     * The Reducer however must be passed to the super class from the constructor.
+                     */
                 }, {
                     key: 'componentDidMount',
                     value: function componentDidMount() {
@@ -226,6 +268,13 @@ $__System.register('a', ['4', '6', '7', '9', '10', '11', '12', '13', '14', 'f', 
                         this._storeInstance.replaceStateAt(STATE_KEY, Immutable.Map(SplashScreenInitialState));
                         this._storeInstance.combiner.addReducer(STATE_KEY, Reducer);
                     }
+
+                    /**
+                     * This is implemented mainly for performance reasons to make sure no unnessary rendering happen.
+                     * @param {SplashScreenProps} props the props that will be passed to the component on the next update.
+                     * @param {SplashScreenState} state the states that will be passed to the component on the next update.
+                     * @returns true or false depending on whether the component needs to update.
+                     */
                 }, {
                     key: 'shouldComponentUpdate',
                     value: function shouldComponentUpdate(props, state) {
@@ -14844,6 +14893,9 @@ $__System.register("ba", ["4", "11", "12", "13", "14"], function (_export) {
     };
 });
 $__System.register('8', ['4'], function (_export) {
+    /**
+     * The supported action types.
+     */
     'use strict';
 
     var START, TYPES, ACTIONS;
@@ -14856,12 +14908,14 @@ $__System.register('8', ['4'], function (_export) {
                 RESTART: START | 0x0001,
                 CHOICE: START | 0x0002,
                 NEXT_ROUND: START | 0x0003,
-                // FINISH      :START | 0x0004,
                 MAIN_MENU: START | 0x0004
             };
 
             _export('TYPES', TYPES);
 
+            /**
+             * The supported action definitons.
+             */
             ACTIONS = {
                 RESTART: {
                     type: TYPES.RESTART,
@@ -14877,10 +14931,6 @@ $__System.register('8', ['4'], function (_export) {
                     type: TYPES.NEXT_ROUND,
                     data: {}
                 },
-                // FINISH:{
-                //     type:TYPES.FINISH,
-                //     data:{}
-                // },
                 MAIN_MENU: {
                     type: TYPES.MAIN_MENU,
                     data: {}
@@ -14894,6 +14944,13 @@ $__System.register('8', ['4'], function (_export) {
     };
 });
 $__System.register('bb', ['4', '8', '9', 'ba'], function (_export) {
+    /**
+     * GamePlayCtrl reducer function. Reducer functions receive the current state of their controllers and the currently dispatched action,
+     * and they return the new state of their controllers.
+     *
+     * @param {Immutable.Map<string,any>} state the current state of {GamePlayCtrl}
+     * @param {Action} action the currently dispatched action.
+     */
     'use strict';
 
     var START_MASK, SPLASH_START, GAME_START, GAME_MODES, TYPES, SPLASH_TYPES, ComputerPlayer, UserPlayer;
@@ -14903,7 +14960,10 @@ $__System.register('bb', ['4', '8', '9', 'ba'], function (_export) {
     _export('Reducer', Reducer);
 
     function Reducer(state, action) {
+        //create a reference to the current state.
         var newState = state;
+        //mask the action space bits such that we can perform a quick check to see if we need to 
+        //handle this action or not. This technique is mainly used for performance reasons and can be skipped on smaller applications.
         var v = action.type & START_MASK;
         if (v === SPLASH_START || v === GAME_START) {
             switch (action.type) {
@@ -14963,18 +15023,6 @@ $__System.register('bb', ['4', '8', '9', 'ba'], function (_export) {
                         m.set('roundCardVisible', false).set('round', ++round).set('playing', true);
                     });
                     break;
-                // case TYPES.FINISH:
-                // newState = newState.withMutations((m)=>{
-                //     let player1 = m.get('player1'),
-                //         player2 = m.get('player2');
-                //     player1.setScore(0);
-                //     player2.setScore(0);
-                //     m.set('round',1)
-                //      .set('finishCardVisible',false)
-                //      .set('roundWinner',null)
-                //      .set('gameWinner',null);
-                // });
-                // break;
                 case TYPES.MAIN_MENU:
                     newState = newState.withMutations(function (m) {
                         m.set('playing', false).set('visible', false).set('roundCardVisible', false).set('finishCardVisible', false);
@@ -15208,11 +15256,37 @@ $__System.register("4", [], function (_export) {
   };
 });
 $__System.register("bc", ["4"], function (_export) {
+    /**
+     * Generates the round text to be displayed at the end of each round.
+     *
+     * @param {Player} player1 the first player {ComputerPlayer}
+     * @param {Player} player2 the second player either a {ComputerPlayer} in simulated mode or a {UserPlayer} in user play mode.
+     *
+     * @returns string representing the round result text.
+     */
     "use strict";
 
     var PLAYER_TYPE;
 
+    /**
+     * Generates the text of the hands played by each player to be displayed at the end of each round.
+     *
+     * @param {Player} player1 the first player {ComputerPlayer}
+     * @param {Player} player2 the second player either a {ComputerPlayer} in simulated mode or a {UserPlayer} in user play mode.
+     *
+     * @returns string representing the hands played by both players.
+     */
+
     _export("formatRoundWinnerText", formatRoundWinnerText);
+
+    /**
+     * Generates the game finish text to be displayed when the game finishes.
+     *
+     * @param {Player} player1 the first player {ComputerPlayer}
+     * @param {Player} player2 the second player either a {ComputerPlayer} in simulated mode or a {UserPlayer} in user play mode.
+     *
+     * @returns string representing the game finnish text.
+     */
 
     _export("formatHandsText", formatHandsText);
 
@@ -18752,6 +18826,16 @@ $__System.register('ec', ['2', '3', '5', '10', '11', '12', '13', '14', 'f', 'b',
             Dialog = _be.Dialog;
         }],
         execute: function () {
+            //This file includes the AppCtrl component code.
+
+            /**
+             * AppCtrl is a controller ReactJS component that serves as the application container. It extends {ControllerView} which is a
+             * class defined in StrikeJS and provides integration with StrikeJS's store system.
+             *
+             * @export
+             * @class AppCtrl
+             * @extends {ControllerView<AppProps, AppState>}
+             */
             'use strict';
 
             AppCtrl = (function (_ControllerView) {
@@ -18768,16 +18852,41 @@ $__System.register('ec', ['2', '3', '5', '10', '11', '12', '13', '14', 'f', 'b',
 
                 
 
+                /**
+                 * Called whenever the close button on the info Dialog is clicked.
+                 */
+
                 _createClass(AppCtrl, [{
                     key: 'onCloseInfo',
                     value: function onCloseInfo() {
                         this._storeInstance.dispatch(ACTIONS.INFO_ACTION(false));
                     }
+
+                    /**
+                     * Called whenever the info button is clicked.
+                     */
                 }, {
                     key: 'onOpenInfo',
                     value: function onOpenInfo() {
                         this._storeInstance.dispatch(ACTIONS.INFO_ACTION(true));
                     }
+
+                    /**
+                     * To gracefully remove component from the application state and the combiner.
+                     * Again in future releases of StrikeJS these two lines can be moved to the ControllerView componentWillUnmount method.
+                     */
+                }, {
+                    key: 'componentWillUnmount',
+                    value: function componentWillUnmount() {
+                        this._storeInstance.deleteStateAt(STATE_KEY);
+                        this._storeInstance.combiner.removeReducer(STATE_KEY);
+                    }
+
+                    /**
+                     * ControllerView internally attaches itself to the store in its componentDidMount method and hence calling super.componentDidMount().
+                     * In future releases of StrikeJS the following two lines can be included inside ControllerView componentDidMount method.
+                     * The Reducer however must be passed to the super class from the constructor.
+                     */
                 }, {
                     key: 'componentDidMount',
                     value: function componentDidMount() {
@@ -18785,6 +18894,10 @@ $__System.register('ec', ['2', '3', '5', '10', '11', '12', '13', '14', 'f', 'b',
                         this._storeInstance.replaceStateAt(STATE_KEY, Immutable.Map(AppInitialState));
                         this._storeInstance.combiner.addReducer(STATE_KEY, Reducer);
                     }
+
+                    /**
+                     * This method is implemented for performance reasons, as it helps triggering a full tree re-render when there is no need to do so.
+                     */
                 }, {
                     key: 'shouldComponentUpdate',
                     value: function shouldComponentUpdate(props, state) {
@@ -18793,7 +18906,6 @@ $__System.register('ec', ['2', '3', '5', '10', '11', '12', '13', '14', 'f', 'b',
                 }, {
                     key: 'render',
                     value: function render() {
-                        var inj = this.props.injector;
                         return React.createElement("div", { className: "app-container", id: "AppCtrl" }, React.createElement(SplashScreenCtrl, { store: this.props.store, onOpenInfo: this.onOpenInfo }), React.createElement(GamePlayCtrl, { store: this.props.store, onOpenInfo: this.onOpenInfo }), React.createElement(Dialog, { onBackdropClick: this.onCloseInfo, onClose: this.onCloseInfo, className: "info-dialog", visible: this.state.infoDialogVisible }, React.createElement("h2", { className: "info-title" }, "Instructions"), React.createElement("div", { className: "info-content" }, React.createElement("img", { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/460px-Rock-paper-scissors.svg.png" }))));
                     }
                 }]);
@@ -18808,14 +18920,11 @@ $__System.register('ec', ['2', '3', '5', '10', '11', '12', '13', '14', 'f', 'b',
 $__System.register('1', ['10', 'ac', 'f', 'b', 'ec'], function (_export) {
     'use strict';
 
-    var Store, Combiner, Injectable, Injector, IntegerPromisify, ReactDOM, React, Immutable, AppCtrl;
+    var Store, Combiner, ReactDOM, React, Immutable, AppCtrl;
     return {
         setters: [function (_) {
             Store = _.Store;
             Combiner = _.Combiner;
-            Injectable = _.Injectable;
-            Injector = _.Injector;
-            IntegerPromisify = _.IntegerPromisify;
         }, function (_ac) {
             ReactDOM = _ac;
         }, function (_f) {
@@ -18827,17 +18936,12 @@ $__System.register('1', ['10', 'ac', 'f', 'b', 'ec'], function (_export) {
         }],
         execute: function () {
             (function () {
-                //create a new instance of the dependency injection module
-                var inj = new Injector();
-                //register any services here
                 //create a new store instance, setting both tracking changes and readiness flags to false.
                 //a store can track actions that happen within the application such that they can be played later on to get the application to a specific state.
                 //a store can also be configured as not ready, in which case any actions received before it becomes ready, will be added to the queue and executed in turn when the store is ready.
-                var store = Store.create(Immutable.Map({}), Combiner.combine(), [Injectable(inj), IntegerPromisify], false, false);
-                //add the store to the injector such that it can be injected when needed.
-                inj.addInstance('store', store);
+                var store = Store.create(Immutable.Map({}), Combiner.combine(), [], false, false);
                 //render the application
-                ReactDOM.render(React.createElement(AppCtrl, { store: store, injector: inj }), document.getElementById("SiteContainer"), function () {
+                ReactDOM.render(React.createElement(AppCtrl, { store: store }), document.getElementById("SiteContainer"), function () {
                     //mark the store as ready to dispatch actions, and dispatch any actions that are currently in the queue. 
                     store.ready();
                 });

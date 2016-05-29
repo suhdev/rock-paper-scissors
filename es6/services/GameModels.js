@@ -51,4 +51,4 @@ export class UserPlayer extends Player {
         return "You played " + (this.state && this.state.label);
     }
 }
-//# sourceMappingURL=GameController.js.map
+//# sourceMappingURL=GameModels.js.map

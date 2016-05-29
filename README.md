@@ -8,6 +8,7 @@
     [application-dir]$ jspm install 
     [application-dir]$ npm start  
 ```
+This will start a local server listening on the port 8000. [http://localhost:8000] 
 2. To execute unit tests and test coverage. The command internally runs jest --coverage followed by jest to run the unit tests  
 ```bash
     $ cd application-dir

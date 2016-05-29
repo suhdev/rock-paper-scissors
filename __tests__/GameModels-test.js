@@ -1,5 +1,5 @@
-jest.unmock("../es6/services/GameController"); 
-import {ComputerPlayer,UserPlayer,Player} from '../es6/services/GameController'; 
+jest.unmock("../es6/services/GameModels"); 
+import {ComputerPlayer,UserPlayer,Player} from '../es6/services/GameModels'; 
 
 import {GAME_MODES,PLAY_STATES,PLAYER_TYPE} from '../es6/constants';
 

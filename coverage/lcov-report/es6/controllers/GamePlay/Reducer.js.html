@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>44/44</span>
+        <span class='fraction'>43/43</span>
       </div>
     </div>
   </div>
@@ -136,19 +136,27 @@
 91
 92
 93
-94
-95
-96</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2×</span>
+94</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">34×</span>
-<span class="cline-any cline-yes">34×</span>
-<span class="cline-any cline-yes">34×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">33×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
@@ -181,14 +189,14 @@
 <span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10×</span>
-<span class="cline-any cline-yes">6×</span>
-<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13×</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">5×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6×</span>
-<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13×</span>
 <span class="cline-any cline-yes">2×</span>
@@ -210,18 +218,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -235,10 +231,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { START_MASK, SPLASH_START, GAME_START, GAME_MODES } from '../../constants';
 import { TYPES as SPLASH_TYPES } from '../SplashScreen/Actions';
-import { ComputerPlayer, UserPlayer } from '../../services/GameController';
+import { ComputerPlayer, UserPlayer } from '../../services/GameModels';
 import { TYPES } from './Actions';
+/**
+ * GamePlayCtrl reducer function. Reducer functions receive the current state of their controllers and the currently dispatched action,
+ * and they return the new state of their controllers.
+ *
+ * @param {Immutable.Map&lt;string,any&gt;} state the current state of {GamePlayCtrl}
+ * @param {Action} action the currently dispatched action.
+ */
 export function Reducer(state, action) {
+    //create a reference to the current state. 
     let newState = state;
+    //mask the action space bits such that we can perform a quick check to see if we need to  
+    //handle this action or not. This technique is mainly used for performance reasons and can be skipped on smaller applications. 
     let v = action.type &amp; START_MASK;
     if (v === SPLASH_START ||
         v === GAME_START) {
@@ -304,18 +310,6 @@ export function Reducer(state, action) {
                         .set('playing', true);
                 });
                 break;
-            // case TYPES.FINISH:
-            // newState = newState.withMutations((m)=&gt;{
-            //     let player1 = m.get('player1'),
-            //         player2 = m.get('player2'); 
-            //     player1.setScore(0);
-            //     player2.setScore(0); 
-            //     m.set('round',1)
-            //      .set('finishCardVisible',false)
-            //      .set('roundWinner',null)
-            //      .set('gameWinner',null);
-            // });
-            // break;
             case TYPES.MAIN_MENU:
                 newState = newState.withMutations((m) =&gt; {
                     m.set('playing', false)
@@ -334,7 +328,7 @@ export function Reducer(state, action) {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 29 2016 18:25:55 GMT+0100 (BST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 29 2016 20:11:46 GMT+0100 (BST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

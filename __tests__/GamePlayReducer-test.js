@@ -1,4 +1,5 @@
 jest.unmock('../es6/controllers/GamePlay/Reducer');
+jest.unmock('../es6/services/GameModels');
 // jest.unmock('../es6/controllers/GamePlay/Actions');
 // jest.unmock('../es6/controllers/SplashScreen/Actions');
 // jest.unmock('../es6/controllers/GamePlay/StateAndProps');

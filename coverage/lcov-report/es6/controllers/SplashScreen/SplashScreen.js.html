@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>20/20</span>
+        <span class='fraction'>22/22</span>
       </div>
     </div>
   </div>
@@ -75,7 +75,28 @@
 30
 31
 32
-33</td><td class="line-coverage quiet"><span class="cline-any cline-yes">4×</span>
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</td><td class="line-coverage quiet"><span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
@@ -85,6 +106,12 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -93,12 +120,27 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -117,6 +159,12 @@ import { Reducer } from './Reducer';
 import { Button } from '../../ui/Button';
 import { IconButton } from '../../ui/IconButton';
 import { Logo } from '../../ui/Logo';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="branch-1 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="else path not taken" >E</span><span class="branch-1 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="if path not taken" >I</span><span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="if path not taken" >I</span><span class="missing-if-branch" title="if path not taken" >I</span><span class="missing-if-branch" title="else path not taken" >E</span><span class="missing-if-branch" title="else path not taken" >E</span><span class="missing-if-branch" title="if path not taken" >I</span></span></span></span></span></span></span></span></span></span>
+/**
+ * A ReactJS component that manages the splash screen i.e. the game's entry screen.
+ * @export
+ * @class SplashScreenCtrl
+ * @extends {ControllerView&lt;SplashScreenProps, SplashScreenState&gt;}
+ */
 export class SplashScreenCtrl extends ControllerView {
     constructor(props) {
         super(props, STATE_KEY);
@@ -124,14 +172,29 @@ export class SplashScreenCtrl extends ControllerView {
         //bind methods to "this" to improve performance i.e. this helps with Reacts diff algorithm as the methods will have the same refernces every time. 
         this.onModeSelected = this.onModeSelected.bind(this);
     }
+    /**
+     * Called upon selected a mode.
+     * @param {string} type one of the available {GAME_MODES}
+     */
     onModeSelected(type) {
         this._storeInstance.dispatch(ACTIONS.START(type));
     }
+    /**
+     * ControllerView internally attaches itself to the store in its componentDidMount method and hence calling super.componentDidMount().
+     * In future releases of StrikeJS the following two lines can be included inside ControllerView componentDidMount method.
+     * The Reducer however must be passed to the super class from the constructor.
+     */
     componentDidMount() {
         super.componentDidMount();
         this._storeInstance.replaceStateAt(STATE_KEY, Immutable.Map(SplashScreenInitialState));
         this._storeInstance.combiner.addReducer(STATE_KEY, Reducer);
     }
+    /**
+     * This is implemented mainly for performance reasons to make sure no unnessary rendering happen.
+     * @param {SplashScreenProps} props the props that will be passed to the component on the next update.
+     * @param {SplashScreenState} state the states that will be passed to the component on the next update.
+     * @returns true or false depending on whether the component needs to update.
+     */
     shouldComponentUpdate(props, state) {
         return state.visible !== this.state.visible;
     }
@@ -145,7 +208,7 @@ export class SplashScreenCtrl extends ControllerView {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 29 2016 18:25:55 GMT+0100 (BST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 29 2016 20:11:46 GMT+0100 (BST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

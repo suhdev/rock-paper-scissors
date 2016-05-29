@@ -1,5 +1,5 @@
 //This file includes any cross-controller constants. 
-import {PlayState} from './services/GameController'; 
+import {PlayState} from './services/GameModels'; 
 
 /**
  * Used to mask action's type field to get the start bits only. 
