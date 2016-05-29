@@ -14,11 +14,25 @@
         color:$color-2;
     }
     
+    .mainmenu-button,.restart-button{
+        position:absolute;
+        top:70px;
+        cursor:pointer;
+        color:$color-2;
+    }
+    .mainmenu-button{
+        left:10px;
+    }
+    
+    .restart-button{
+        left:40px;
+    }
+    
     .app-logo{
         position:absolute;
         top:10px;
         left:10px;
-        width:120px;
+        width:100px;
         img{
             width:100%;
         }
@@ -68,9 +82,11 @@
         position:absolute;
         width:120px;
         top:60px;
+        top:50%;
+        margin-top:-170px;
         
         .section-title{
-            font-size:28px;
+            font-size:20px;
             line-height: 1.4em;
         }
         &.player-1{

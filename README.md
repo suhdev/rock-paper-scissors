@@ -2,17 +2,23 @@
 
 ##How to use this code
 1. To run local server use the following commands [the installation steps are only required if there is a need to recompile the code]. Internally, the script will run python -m SimpleHTTPServer on the "dist" directory.  
-```bash 
-    $ cd application-dir
-    [application-dir]$ npm install 
-    [application-dir]$ jspm install 
-    [application-dir]$ npm start  
+```bash
+    $ git clone https://github.com/suhdev/rock-paper-scissors.git rockpaper.dev  
+    $ cd rockpaper.dev 
+    [rockpaper.dev]$ npm install 
+    [rockpaper.dev]$ jspm install 
+    [rockpaper.dev]$ npm start  
 ```
 This will start a local server listening on the port 8000. [http://localhost:8000] 
 2. To execute unit tests and test coverage. The command internally runs jest --coverage followed by jest to run the unit tests  
 ```bash
-    $ cd application-dir
-    [application-dir]$ npm test 
+    $ cd rockpaper.dev
+    [rockpaper.dev]$ npm test 
+```
+3. To compile the JavaScript into an executable. 
+```bash
+    $ cd rockpaper.dev
+    [rockpaper.dev]$ jspm bundle-sfx es6/main.js dist/scripts/app.bundle.js 
 ```
 
 ##Folder Structure
@@ -27,13 +33,14 @@ This will start a local server listening on the port 8000. [http://localhost:800
     * services: components that deal with third-party APIs, business logic, etc. 
     * contants.tsx: includes global constants used across the different components of the application. 
     * main.tsx: a file that serves as the entry point of the application and mainly responsible for bootstrapping the application.
-3. \__tests__: contains all unit tests [written in ES6], the tests use Facebook's "jest" testing framework.  
-4. typings: TypeScript type definionts, includes: jquery, immutable, react, ands strikejs. 
-5. gulpfile.js: Task definitions for gulp task runner. 
-6. config.rb: "compass" configuration file
-7. tsconfig.json: TypeScript configurations file. Currently set to export ES6-complaint JavaScript code using ES6 modules. 
-8. config.js: JSPM configuration file. JSPM is a package manager utility with great support for compiling and packaging JavaScript code that uses ES6. The package manager uses Babel to compile ES6 code.
-9. package.json: npm configuration file. 
+3. es6: JavaScript compiled files, as can be seen from the "tsconfig.json" file, the target module system is JavaScript's ES6 modules, and the syntax is also ES6. 
+4. \__tests__: contains all unit tests [written in ES6], the tests use Facebook's "jest" testing framework.  
+5. typings: TypeScript type definionts, includes: jquery, immutable, react, ands strikejs. 
+6. gulpfile.js: Task definitions for gulp task runner. 
+7. config.rb: "compass" configuration file
+8. tsconfig.json: TypeScript configurations file. Currently set to export ES6-complaint JavaScript code using ES6 modules. 
+9. config.js: JSPM configuration file. JSPM is a package manager utility with great support for compiling and packaging JavaScript code that uses ES6. The package manager uses Babel to compile ES6 code.
+10. package.json: npm configuration file. 
 
 ##JavaScript Dependencies
 1. ReactJS
@@ -44,7 +51,6 @@ This will start a local server listening on the port 8000. [http://localhost:800
 1. Typescript 1.8
 2. JSPM: a JavaScript package manager with great support for ES6 and integration with Babel. Internally uses SystemJS to manage code dependencies. 
 3. jest: Facebook unit-testing framework with great support for ES6 unit tests as well as great support on testing ReactJS applications.   
-
 
 ##Conventions 
 1. CSS 
@@ -63,3 +69,16 @@ This will start a local server listening on the port 8000. [http://localhost:800
       Note: if the controller relies on some components that are specific to this controller, these components are created within the folder of the specific controller to keep things clean.    
     * UI components should be stateless, and in case they need to have state, it should be for the sake of style changes rather than actual application states. 
     * Method names should be in camel case. 
+    
+    
+Disclaimer: all the code in this repository is my own code. For the implementation I've used two libraries ReactJS and Immutable, which are both maintained by Facebook, and StrikeJS, which is a library that I've developed to write ReactJS applications. For testing I've used "jest" which is a unit testing framework with great support for testing ReactJS applications, the library is also maintained by Facebook. 
+
+##Resources
+1. https://facebook.github.io/react/
+2. https://facebook.github.io/immutable-js/
+3. https://facebook.github.io/jest/
+4. http://jasmine.github.io/2.4/introduction.html
+5. http://www.typescriptlang.org/
+6. https://github.com/DefinitelyTyped/tsd 
+7. https://github.com/suhdev/strike [This is still missing documentation, I still need to properly document this library.]
+8. https://github.com/suhdev/oasis-framework [A CSS framework that I've built.]  

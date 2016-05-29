@@ -112,4 +112,36 @@ describe("Testing GamePlayCtrl component",function(){
          expect(ctrl.state.round).toEqual(3);
     });
     
+    it("should restart GamePlayCtrl computer vs user",function(){
+        let store = Store.create(Immutable.Map({}),Combiner.combine(),[],false,true);
+        var obj = {
+            onInfoClick:function(){
+                
+            }
+        };
+        spyOn(obj,'onInfoClick').and.callThrough(); 
+        const ctrl = TestUtils.renderIntoDocument(
+            <GamePlayCtrl store={store} onInfoClick={obj.onInfoClick} />
+        );
+        
+         let ctrlNode = ReactDOM.findDOMNode(ctrl);
+         expect(ctrlNode.getAttribute("data-visible")).toEqual("false");
+         store.dispatch(SPLASH_ACTIONS.START(GAME_MODES.PLAYER_VS_COMPUTER));
+         ctrlNode = ReactDOM.findDOMNode(ctrl);
+         expect(ctrlNode.getAttribute("data-visible")).toEqual("true");
+         jest.runOnlyPendingTimers();
+         let vx = TestUtils.findRenderedDOMComponentWithClass(ctrl,"btn-item-0");
+         TestUtils.Simulate.click(vx,{}); 
+         expect(ctrl.state.roundCardVisible).toEqual(true);
+         let v = TestUtils.findRenderedDOMComponentWithClass(ctrl,"next-round-btn");
+         TestUtils.Simulate.click(v,{}); 
+         expect(ctrl.state.roundCardVisible).toEqual(false); 
+         v = TestUtils.findRenderedDOMComponentWithClass(ctrl,"restart-button");
+         TestUtils.Simulate.click(v,{}); 
+         expect(ctrl.state.round).toEqual(1);
+         v = TestUtils.findRenderedDOMComponentWithClass(ctrl,"mainmenu-button");
+         TestUtils.Simulate.click(v,{});
+         expect(ctrl.state.visible).toEqual(false);
+    });
+    
 }); 

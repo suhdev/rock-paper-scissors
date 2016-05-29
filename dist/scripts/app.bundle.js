@@ -15350,8 +15350,8 @@ $__System.register("bc", ["4"], function (_export) {
         execute: function () {}
     };
 });
-$__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b', 'b9', 'bb', 'c', 'e', 'be', 'bc'], function (_export) {
-    var GAME_MODES, PLAYER_TYPE, PLAY_STATES, SIMULATION_TIMEOUT, COMPUTER_HAND_CHANGE_INTERVAL, ACTIONS, ControllerView, _get, _inherits, _createClass, _classCallCheck, React, ReactDOM, Immutable, GamePlayInitialState, STATE_KEY, Reducer, Button, Logo, Dialog, formatGameFinishText, formatHandsText, formatRoundWinnerText, GamePlayCtrl;
+$__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b', 'b9', 'bb', 'c', 'd', 'e', 'be', 'bc'], function (_export) {
+    var GAME_MODES, PLAYER_TYPE, PLAY_STATES, SIMULATION_TIMEOUT, COMPUTER_HAND_CHANGE_INTERVAL, ACTIONS, ControllerView, _get, _inherits, _createClass, _classCallCheck, React, ReactDOM, Immutable, GamePlayInitialState, STATE_KEY, Reducer, Button, IconButton, Logo, Dialog, formatGameFinishText, formatHandsText, formatRoundWinnerText, GamePlayCtrl;
 
     return {
         setters: [function (_7) {
@@ -15385,6 +15385,8 @@ $__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b'
             Reducer = _bb.Reducer;
         }, function (_c) {
             Button = _c.Button;
+        }, function (_d) {
+            IconButton = _d.IconButton;
         }, function (_e) {
             Logo = _e.Logo;
         }, function (_be) {
@@ -15469,7 +15471,7 @@ $__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b'
                 }, {
                     key: 'onChoice',
                     value: function onChoice(e) {
-                        clearInterval(this.timer);
+                        this._pause();
                         this._storeInstance.dispatch(ACTIONS.CHOICE(e));
                     }
 
@@ -15488,7 +15490,10 @@ $__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b'
                 }, {
                     key: 'onRestart',
                     value: function onRestart() {
-                        this._storeInstance.dispatch(ACTIONS.RESTART);
+                        if (this.state.round > 1) {
+                            this._pause();
+                            this._storeInstance.dispatch(ACTIONS.RESTART);
+                        }
                     }
 
                     /**
@@ -15537,8 +15542,10 @@ $__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b'
                                     start2 = 0;
                                 }
                             }, COMPUTER_HAND_CHANGE_INTERVAL);
-                            setTimeout(function () {
-                                _this.onChoice(PLAY_STATES[start2]);
+                            this.timeout = setTimeout(function () {
+                                if (_this.timer) {
+                                    _this.onChoice(PLAY_STATES[start2]);
+                                }
                             }, SIMULATION_TIMEOUT);
                         }
                     }
@@ -15550,6 +15557,7 @@ $__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b'
                     key: '_pause',
                     value: function _pause() {
                         clearInterval(this.timer);
+                        clearTimeout(this.timeout);
                         this.timer = null;
                     }
 
@@ -15562,7 +15570,7 @@ $__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b'
                 }, {
                     key: 'componentDidUpdate',
                     value: function componentDidUpdate(prevProps, prevState) {
-                        if (this.state.playing && this.state.playing !== prevState.playing) {
+                        if (this.state.playing && this.state.playing !== prevState.playing || this.state.playing && this.timer === null) {
                             this._resume();
                         } else {
                             this._pause();
@@ -15575,6 +15583,7 @@ $__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b'
                 }, {
                     key: 'onMainMenu',
                     value: function onMainMenu() {
+                        this._pause();
                         this._storeInstance.dispatch(ACTIONS.MAIN_MENU);
                     }
 
@@ -15597,7 +15606,7 @@ $__System.register('bd', ['4', '8', '10', '11', '12', '13', '14', 'f', 'ac', 'b'
                             btns = PLAY_STATES.map(function (e, i) {
                             return React.createElement(Button, { key: e.label, label: e.label, icon: e.icon, className: "info btn-item-" + i, onClick: _this2.onChoice, userData: e });
                         });
-                        return React.createElement("div", { className: "window-screen", id: "GamePlayCtrl", key: "container-1x", "data-visible": this.state.visible }, React.createElement("div", { className: "screen-wrapper", key: "container-2x" }, React.createElement(Logo, { image: "/img/rock-paper-scissors-logo.png", className: "app-logo" }), React.createElement("div", { className: "game-title" }, player2.getLabel() + " vs " + player1.getLabel()), React.createElement("div", { className: "game-round-count" }, "Round ", state.round, " of ", state.maxRounds, " "), React.createElement("div", { className: "player-section player-1" }, React.createElement("h2", { className: "section-title" }, player1.getLabel()), React.createElement("div", { className: "of-btn" }, React.createElement("i", { className: player1.state && player1.state.icon, ref: "computerIcon" }), React.createElement("span", { ref: "computerLabel" }, player1.state && player1.state.label))), React.createElement("div", { className: player2.is(PLAYER_TYPE.USER) ? "player-section player-2" : "player-section player-2 computer" }, React.createElement("h2", { className: "section-title" }, player2.getLabel()), gameMode === GAME_MODES.PLAYER_VS_COMPUTER ? btns : computerBtn), React.createElement(Dialog, { visible: state.roundCardVisible, onClose: this.onNextRound }, React.createElement("h2", { className: "round-title" }, state.round, " of ", state.maxRounds), React.createElement("div", { className: "round-description", key: "round-hands" }, formatHandsText(player1, player2)), React.createElement("div", { className: "round-description", key: "round-result" }, formatRoundWinnerText(player1, player2)), React.createElement(Button, { onClick: this.onNextRound, label: "Next Round", className: "next-round-btn" })), React.createElement(Dialog, { visible: state.finishCardVisible, onClose: this.onRestart }, React.createElement("h2", { className: "round-title" }, state.round, " of ", state.maxRounds), React.createElement("div", { className: "round-description", key: "round-hands" }, formatHandsText(player1, player2)), React.createElement("div", { className: "round-description", key: "round-result-2" }, formatGameFinishText(player1, player2)), React.createElement(Button, { onClick: this.onRestart, label: "Play Again" }), React.createElement(Button, { onClick: this.onMainMenu, label: "Main Menu" }))));
+                        return React.createElement("div", { className: "window-screen", id: "GamePlayCtrl", key: "container-1x", "data-visible": this.state.visible }, React.createElement("div", { className: "screen-wrapper", key: "container-2x" }, React.createElement(Logo, { image: "/img/rock-paper-scissors-logo.png", className: "app-logo" }), React.createElement("div", { className: "game-title" }, player2.getLabel() + " vs " + player1.getLabel()), React.createElement("div", { className: "game-round-count" }, "Round ", state.round, " of ", state.maxRounds, " "), React.createElement(IconButton, { onClick: this.onRestart, icon: "fa fa-rotate-left fa-2x", className: "restart-button" }), React.createElement(IconButton, { onClick: this.onMainMenu, icon: "fa fa-arrow-circle-left fa-2x", className: "mainmenu-button" }), React.createElement("div", { className: "player-section player-1" }, React.createElement("h2", { className: "section-title" }, player1.getLabel(), " (", player1.getScore(), ")"), React.createElement("div", { className: "of-btn" }, React.createElement("i", { className: player1.state && player1.state.icon, ref: "computerIcon" }), React.createElement("span", { ref: "computerLabel" }, player1.state && player1.state.label))), React.createElement("div", { className: player2.is(PLAYER_TYPE.USER) ? "player-section player-2" : "player-section player-2 computer" }, React.createElement("h2", { className: "section-title" }, player2.getLabel(), " (", player2.getScore(), ")"), gameMode === GAME_MODES.PLAYER_VS_COMPUTER ? btns : computerBtn), React.createElement(Dialog, { visible: state.roundCardVisible, onClose: this.onNextRound }, React.createElement("h2", { className: "round-title" }, state.round, " of ", state.maxRounds), React.createElement("div", { className: "round-description", key: "round-hands" }, formatHandsText(player1, player2)), React.createElement("div", { className: "round-description", key: "round-result" }, formatRoundWinnerText(player1, player2)), React.createElement(Button, { onClick: this.onNextRound, label: "Next Round", className: "next-round-btn" })), React.createElement(Dialog, { visible: state.finishCardVisible, onClose: this.onRestart }, React.createElement("h2", { className: "round-title" }, state.round, " of ", state.maxRounds), React.createElement("div", { className: "round-description", key: "round-hands" }, formatHandsText(player1, player2)), React.createElement("div", { className: "round-description", key: "round-result-2" }, formatGameFinishText(player1, player2)), React.createElement(Button, { onClick: this.onRestart, label: "Play Again" }), React.createElement(Button, { onClick: this.onMainMenu, label: "Main Menu" }))));
                     }
                 }]);
 

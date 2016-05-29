@@ -24,6 +24,13 @@ export class GamePlayCtrl extends ControllerView<GamePlayProps,GamePlayState>{
     timer:number;
     
     /**
+     * Holds the active timeout id. 
+     * 
+     * @type {number}
+     */
+    timeout:number;
+    
+    /**
      * Creates an instance of GamePlayCtrl.
      * 
      * @param {GamePlayProps} props 
@@ -83,7 +90,7 @@ export class GamePlayCtrl extends ControllerView<GamePlayProps,GamePlayState>{
      * @param e PlayState the chosen state either by the user or the computer 
      */
     onChoice(e:PlayState){
-        clearInterval(this.timer); 
+        this._pause();
         this._storeInstance.dispatch(ACTIONS.CHOICE(e));
     }
     
@@ -98,7 +105,10 @@ export class GamePlayCtrl extends ControllerView<GamePlayProps,GamePlayState>{
      * Called when the user clicks on Play Again button. 
      */
     onRestart(){
-        this._storeInstance.dispatch(ACTIONS.RESTART);
+        if (this.state.round > 1){
+            this._pause();
+            this._storeInstance.dispatch(ACTIONS.RESTART);
+        }
     }
     
     /**
@@ -143,8 +153,10 @@ export class GamePlayCtrl extends ControllerView<GamePlayProps,GamePlayState>{
                 }
             },COMPUTER_HAND_CHANGE_INTERVAL);
             
-            setTimeout(()=>{
-                this.onChoice(PLAY_STATES[start2]);
+            this.timeout = setTimeout(()=>{
+                if (this.timer){
+                    this.onChoice(PLAY_STATES[start2]);
+                }
             },SIMULATION_TIMEOUT);
         }
     }
@@ -154,6 +166,7 @@ export class GamePlayCtrl extends ControllerView<GamePlayProps,GamePlayState>{
      */
     _pause(){
         clearInterval(this.timer);
+        clearTimeout(this.timeout); 
         this.timer = null;
     }
     
@@ -164,7 +177,8 @@ export class GamePlayCtrl extends ControllerView<GamePlayProps,GamePlayState>{
      * @param {GamePlayState} prevState previous component state. 
      */
     componentDidUpdate(prevProps:GamePlayProps,prevState:GamePlayState){
-        if (this.state.playing && this.state.playing !== prevState.playing){
+        if ((this.state.playing && this.state.playing !== prevState.playing) || 
+            (this.state.playing && this.timer === null)){
             this._resume();             
         }else {
             this._pause();
@@ -175,6 +189,7 @@ export class GamePlayCtrl extends ControllerView<GamePlayProps,GamePlayState>{
      * Called when the user clicks on the Main Menu button. 
      */
     onMainMenu(){
+        this._pause();
         this._storeInstance.dispatch(ACTIONS.MAIN_MENU);
     }
     
@@ -211,15 +226,17 @@ export class GamePlayCtrl extends ControllerView<GamePlayProps,GamePlayState>{
                     <Logo image="/img/rock-paper-scissors-logo.png" className="app-logo" />
                     <div className="game-title">{player2.getLabel()+ " vs " + player1.getLabel()}</div>
                     <div className="game-round-count">Round {state.round} of {state.maxRounds} </div>
+                    <IconButton onClick={this.onRestart} icon="fa fa-rotate-left fa-2x" className="restart-button" />
+                    <IconButton onClick={this.onMainMenu} icon="fa fa-arrow-circle-left fa-2x" className="mainmenu-button" />
                     <div className="player-section player-1">
-                        <h2 className="section-title">{player1.getLabel()}</h2>
+                        <h2 className="section-title">{player1.getLabel()} ({player1.getScore()})</h2>
                         <div className="of-btn">
                             <i className={player1.state && player1.state.icon} ref="computerIcon"></i>
                             <span ref="computerLabel">{player1.state && player1.state.label}</span>
                         </div>
                     </div>
                     <div className={player2.is(PLAYER_TYPE.USER)?"player-section player-2":"player-section player-2 computer"}>
-                        <h2 className="section-title">{player2.getLabel()}</h2>
+                        <h2 className="section-title">{player2.getLabel()} ({player2.getScore()})</h2>
                         {gameMode === GAME_MODES.PLAYER_VS_COMPUTER?btns:computerBtn}
                     </div>
                     <Dialog visible={state.roundCardVisible} onClose={this.onNextRound}>
