@@ -1,0 +1,122 @@
+body,html{
+	position:relative;
+	height:100%;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	@include SmallDevice(){
+		font-size:16px;
+	}
+}
+
+#App{
+	position:relative;
+	margin:0px;
+	padding:0px;
+	height:100%;
+	// padding-top:1px;
+}
+
+.app-container{
+	position:relative;
+	height:100%;
+	margin:0px;
+	padding:0px;
+	overflow:auto;
+}
+
+#SiteContainer{
+	position:absolute; 
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+
+	.app-container{
+		position:absolute;
+		left:0px;
+		top:0px;
+		width:100%;
+		height:100%;
+	}
+}
+$tabs:'search-screen' 'search-result'; 
+
+.app-container{
+	@each $screen in $tabs {
+		&[data-at="#{$screen}"]{
+			.#{$screen}{
+				display:block;
+			}
+		}
+	}
+
+	&[data-at="screen-result"]{
+		.search-result{
+			margin-top:42px;
+		}
+
+		@include SmallDevice(){
+			.search-result{
+				margin-top:66px;
+			}			
+		}
+	}
+}
+
+
+%window-screen,.window-screen{
+	@extend %box;
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	display:none;
+
+	&[data-active="true"]{
+		display:block;
+	}
+}
+
+text{
+	font-family:'Roboto',sans-serif;
+}
+
+.app-container[data-embed="true"]{
+	.search-screen{
+		display:none !important;
+	}
+	.search-result{
+		.time-picker-bar,.term-selector,.newspaper-widget,.articles-widget,.share-widget,.contactus-widget{
+			display:none !important;
+		}
+
+		.graph-canvas{
+			&:after{
+				position:absolute;
+				bottom:10px;
+				content:' ';
+				width:60px;
+				height:16px;
+				background-image:url("/img/lava-logo.png");
+				background-size:contain;
+				background-position:center;
+				background-repeat:no-repeat;
+				left:10px;
+			}
+		}
+	}
+
+	&[data-embedtype="publication"]{
+		.overall-widget{
+			display:none;
+		}
+	}
+	&[data-embedtype="overall"]{
+		.publication-comparison{
+			display:none;
+		}
+	}
+}

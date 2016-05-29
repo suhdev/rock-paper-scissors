@@ -1,0 +1,164 @@
+.share-container{
+	@extend %clearfix;
+	position:relative;
+	text-align:right;
+	.share-button{
+		position:relative;
+		display:inline-block;
+		cursor:pointer;
+		width:42px;
+		height:42px;
+		line-height:42px;
+		color:$color-1;
+		text-align:center;
+
+		.btn-tooltip{
+			position:absolute;
+			background-color: $color-1;
+			display:none;
+			width:100px;
+			left:50%;
+			margin-left:-50px;
+			top:-60%;
+			margin-top:0px;
+			font-size:12px;
+			height:26px;
+			line-height:26px;
+			color:white;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			-ms-border-radius: 4px;
+			-o-border-radius: 4px;
+			border-radius: 4px;
+
+			&:after{
+				position:absolute;
+				content:' ';
+				display:block;
+				border:4px solid transparent; 
+				border-top:4px solid $color-1;
+				width:0px;
+				height:0px;
+				left:50%;
+				margin-left:-2px;
+				top:100%;
+				// margin-top:-4px;
+			}
+
+		}
+
+		&:after{
+			content:' ';
+			display:block;
+			position:absolute;
+			bottom:0px;
+			height:1px;
+			width:0px;
+			left:0px;
+			background-color: $color-1;
+			-webkit-transition: width 0.8s cubic-bezier(0,0,0,1);
+			-o-transition: width 0.8s cubic-bezier(0,0,0,1);
+			transition: width 0.8s cubic-bezier(0,0,0,1);
+		}
+		i{
+			cursor:pointer;
+		}
+
+		&:hover{
+			.btn-tooltip{
+				display:block;
+			}
+			&:after{
+				width:100%;
+			}
+		}
+	}
+
+}
+.share-widget{
+	@extend %box;
+	position:relative;
+	width:100%;
+	text-align:center;
+	padding:10px;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+
+
+	.share-buttons-wrapper{
+		@extend %clearfix;
+		margin:0px -5px;
+	}
+
+	.share-button-wrapper{
+		@extend %box;
+		width:50%;
+		float:left;
+		padding:0px 5px;
+	}
+
+	.share-button{
+		@extend %box;
+		display:inline-block;
+		cursor:pointer;
+		line-height:42px;
+		height:42px;
+		// max-width:120px;
+		color:white;
+		text-transform:uppercase;
+		font-size:14px;
+		font-weight:bold;
+		width:100%;
+
+		&.share-fb {
+			background-color: #2268b7;
+		}
+
+		&.share-tw{
+			background-color:#17cbf2;
+		}
+
+
+
+		i{
+			line-height:42px;
+			font-size:36px;
+		}
+
+		span{
+			display:inline-block;
+			vertical-align:top;
+		}
+
+		&::before{
+			content:'';
+			vertical-align:middle;
+
+		}
+
+		&.embed{
+			display:none;
+		}
+
+	}
+
+	@include SmallDevice(){
+		display:none;
+	}
+
+	// @include SmallDevice(){
+	// 	.share-button{
+	// 		width:48%;
+	// 		&.embed{
+	// 			display:inline-block;
+	// 		}
+
+	// 		&.back-btn{
+	// 			position:absolute;
+	// 			left:0px;
+	// 		}
+	// 	}
+	// }
+}

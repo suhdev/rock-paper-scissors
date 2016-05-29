@@ -1,0 +1,200 @@
+$grid-columns:24 !default;
+$grid-gutter:10px !default;
+%column,.column {
+	@extend %box;
+	position:relative;
+	padding-left:$grid-gutter/2;
+	padding-right:$grid-gutter/2;
+	float:left;
+
+	.rtl &,&.rtl{
+		float:right;
+	}
+}
+
+.container-fluid{
+	@extend %box;
+	position:relative;
+	padding-left:($grid-gutter/2);
+	padding-right:($grid-gutter/2);
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+}
+
+.container{
+	@extend %box;
+	position:relative;
+	padding-left:($grid-gutter/2);
+	padding-right:($grid-gutter/2);
+	margin-left:auto;
+	margin-right:auto;
+
+	@media(min-width:$screen-size-large){
+		max-width:1120px;
+	}
+}
+
+@media(max-width:$screen-size-xsmall - 1px){
+	.hidden-vs{
+		display:none !important;
+	}
+}
+
+@media(min-width:$screen-size-xsmall){
+	@media(max-width:$screen-size-small - 1px){
+		.hidden-xs{
+			display:none !important;
+		}
+	}
+}
+
+@media(min-width:$screen-size-small){
+	@media(max-width:$screen-size-medium - 1px){
+		.hidden-sm{
+			display:none !important;
+		}
+	}
+}
+
+@media(min-width:$screen-size-medium){
+	@media(max-width:$screen-size-large - 1px){
+		.hidden-md{
+			display:none !important;
+		}
+	}
+}
+
+@media(min-width:$screen-size-large){
+	.hidden-lg{
+		display:none !important;
+	}
+}
+
+.visible-vs{
+	display:block !important;
+
+	@media(min-width:$screen-size-xsmall){
+		display:none !important;
+	}
+}
+
+.visible-xs{
+	display:none !important;
+
+	@media(min-width:$screen-size-xsmall){
+		@media(max-width:$screen-size-small - 1px){
+			display:block !important;
+		}
+	}
+}
+
+.visible-sm{
+	display:none !important;
+
+	@media(min-width:$screen-size-small){
+		@media(max-width:$screen-size-medium - 1px){
+			display:block !important;
+		}
+	}
+}
+
+.visible-md{
+	display:none !important;
+
+	@media(min-width:$screen-size-medium){
+		@media(max-width:$screen-size-large - 1px){
+			display:block !important;
+		}
+	}
+}
+
+.visible-lg{
+	display:none !important;
+
+	@media(min-width:$screen-size-large){
+		display:block !important;
+	}
+}
+
+.container-full{
+	@extend .container;
+	@media(min-width:$screen-size-large){
+		max-width:auto;
+	}
+}
+
+.row{
+	@extend %clearfix;
+	@extend %box;
+	position:relative;
+
+	.container > &,.container-fluid > &, *[class*="col-"] > &,.col-vs-6 &{
+		margin-left:-($grid-gutter/2);
+		margin-right:-($grid-gutter/2);
+	}
+}
+//
+// @for $i from 1 through $grid-columns {
+// 	.col-#{$i} {
+// 		@extend %column;
+// 		width:$i/$grid-columns * 100%;
+// 		float:left;
+// 	}
+//
+// }
+
+$sels:();
+// append($sels, suhail);
+@for $i from 1 through $grid-columns {
+	$sels:append($sels, ".col-vs-" + $i, comma);
+	$sels:append($sels, ".col-xs-" + $i, comma);
+	$sels:append($sels, ".col-sm-" + $i, comma);
+	$sels:append($sels, ".col-md-" + $i, comma);
+	$sels:append($sels, ".col-lg-" + $i, comma);
+
+	.col-vs-#{$i}{
+		width:$i/$grid-columns * 100%;
+	}
+
+}
+#{$sels}{
+	position:relative;
+	@extend %box;
+	padding-left:$grid-gutter/2;
+	padding-right:$grid-gutter/2;
+	float:left;
+
+	.rtl &, &.rtl{
+		float:right;
+	}
+}
+//
+// @media(min-width:$screen-size-xsmall){
+// 	$sels:();
+// 	@for $i from 1 through $grid-columns {
+// 		$sels:append($sels, ".col-xs-" + $i, comma);
+// 		$sels:append($sels, ".col-sm-" + $i, comma);
+// 		$sels:append($sels, ".col-md-" + $i, comma);
+// 		$sels:append($sels, ".col-lg-" + $i, comma);
+//
+// 	}
+// 	#{$sels}{
+// 		position:relative;
+//
+// 	}
+// }
+
+
+@each $type in $screen-size-types {
+	$idx:index($screen-size-types, $type);
+	$size:nth($screen-sizes, $idx);
+	@media(min-width:$size){
+		@for $i from 1 through $grid-columns {
+			.col-#{$type}-#{$i} {
+				width:$i/$grid-columns * 100%;
+				// padding-left
+			}
+		}
+	}
+}

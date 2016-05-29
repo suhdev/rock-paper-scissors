@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for es6/controllers/GamePlay/GamePlay.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">es6/controllers/GamePlay/</a> GamePlay.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.61% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>110/127</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.6% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>58/81</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>24/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.31% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>61/64</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164</td><td class="line-coverage quiet"><span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as React from 'react';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="else path not taken" >E</span><span class="missing-if-branch" title="if path not taken" >I</span><span class="missing-if-branch" title="if path not taken" >I</span><span class="missing-if-branch" title="if path not taken" >I</span><span class="missing-if-branch" title="else path not taken" >E</span><span class="missing-if-branch" title="else path not taken" >E</span></span></span></span></span></span></span></span></span></span></span>
+import * as ReactDOM from 'react-dom';
+import * as Immutable from 'immutable';
+import { ControllerView } from 'strikejs';
+import { ACTIONS } from './Actions';
+import { GAME_MODES, PLAYER_TYPE, PLAY_STATES, SIMULATION_TIMEOUT, COMPUTER_HAND_CHANGE_INTERVAL } from '../../constants';
+import { GamePlayInitialState, STATE_KEY } from './StateAndProps';
+import { Reducer } from './Reducer';
+import { Button } from '../../ui/Button';
+import { Logo } from '../../ui/Logo';
+import { Dialog } from '../../ui/Dialog';
+import { formatGameFinishText, formatHandsText, formatRoundWinnerText } from './GameResults';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="branch-1 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="else path not taken" >E</span><span class="branch-1 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="if path not taken" >I</span><span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="if path not taken" >I</span><span class="missing-if-branch" title="if path not taken" >I</span><span class="missing-if-branch" title="else path not taken" >E</span><span class="missing-if-branch" title="else path not taken" >E</span><span class="missing-if-branch" title="if path not taken" >I</span></span></span></span></span></span></span></span></span></span>
+export class GamePlayCtrl extends ControllerView {
+    /**
+     * Creates an instance of GamePlayCtrl.
+     *
+     * @param {GamePlayProps} props
+     */
+    constructor(props) {
+        super(props, STATE_KEY);
+        //setting the initial state of the component such that the component is initialied at a specific state. 
+        this.state = GamePlayInitialState;
+        //binding methods to "this" to improve performance 
+        //i.e. this helps with Reacts diff algorithm as the methods will have the same refernces every time they're passed through props.   
+        this.onChoice = this.onChoice.bind(this);
+        this.onNextRound = this.onNextRound.bind(this);
+        this.onRestart = this.onRestart.bind(this);
+        this.onMainMenu = this.onMainMenu.bind(this);
+    }
+    /**
+     * ControllerView internally attaches itself to the store in its componentDidMount method and hence calling super.componentDidMount().
+     * In future releases of StrikeJS the following two lines can be included inside ControllerView componentDidMount method.
+     * The Reducer however must be passed to the super class from the constructor.
+     */
+    componentDidMount() {
+        super.componentDidMount();
+        //the first line wraps the initial state with an Immutable Map [for performance reasons] and attaches it to the store at the component state key. 
+        this._storeInstance.replaceStateAt(STATE_KEY, Immutable.Map(GamePlayInitialState));
+        //this lines attaches reducer to the store's combiner at the component state key. 
+        this._storeInstance.combiner.addReducer(STATE_KEY, Reducer);
+    }
+    /**
+     * This is implemented mainly for performance reasons to make sure no unnessary rendering happen.
+     *
+     * @param {GamePlayProps} props the props that will be passed to the component on the next update.
+     * @param {GamePlayState} state the states that will be passed to the component on the next update.
+     * @returns true or false depending on whether the component needs to update.
+     */
+    shouldComponentUpdate(props, state) {
+        return state.visible !== this.state.visible ||
+            state.finishCardVisible !== this.state.finishCardVisible ||
+            state.roundCardVisible !== this.state.roundCardVisible ||
+            state.gameWinner !== this.state.gameWinner ||
+            state.roundWinner !== this.state.roundWinner ||
+            state.round !== this.state.round;
+    }
+    /**
+     * To gracefully remove component from the application state and the combiner.
+     * Again in future releases of StrikeJS these two lines can be moved to the ControllerView componentWillUnmount method.
+     */<span class="fstat-no" title="function not covered" ></span>
+    componentWillUnmount() {
+        this<span class="cstat-no" title="statement not covered" >._storeInstance.deleteStateAt(STATE_KEY);</span>
+        this<span class="cstat-no" title="statement not covered" >._storeInstance.combiner.removeReducer(STATE_KEY);</span>
+    }
+    /**
+     * Called everytime the user selects an answer, or the simulatation timer times out to trigger a state change.
+     * @param e PlayState the chosen state either by the user or the computer
+     */
+    onChoice(e) {
+        clearInterval(this.timer);
+        this._storeInstance.dispatch(ACTIONS.CHOICE(e));
+    }
+    /**
+     * Called everytime the user clicks on the Next Round button.
+     */
+    onNextRound() {
+        this._storeInstance.dispatch(ACTIONS.NEXT_ROUND);
+    }
+    /**
+     * Called when the user clicks on Play Again button.
+     */
+    onRestart() {
+        this._storeInstance.dispatch(ACTIONS.RESTART);
+    }
+    /**
+     * Resumes game play. Mainly checks if the game is being played in simulation modes it will update both players states,
+     * otherwise, it will only update the first player state i.e. icon classes and labels.
+     */
+    _resume() {
+        //two random starts such that the two computer players [if in simulation mode], will have different initial states. 
+        let start1 = Math.floor(Math.random() * 3455) % PLAY_STATES.length, start2 = Math.floor(Math.random() * 6744) % PLAY_STATES.length, gameMode = this.state.gameMode, icon = ReactDOM.findDOMNode(this.refs['computerIcon']), label = ReactDOM.findDOMNode(this.refs['computerLabel']), 
+        //icon2 and label2 will only be available if the game is in simulation mode
+        icon2 = ReactDOM.findDOMNode(this.refs['computerIcon2']), label2 = ReactDOM.findDOMNode(this.refs['computerLabel2']);
+        if (<span class="missing-if-branch" title="if path not taken" >I</span>this.timer) {
+            clea<span class="cstat-no" title="statement not covered" >rInterval(this.timer);</span>
+        }
+        if (gameMode === GAME_MODES.PLAYER_VS_COMPUTER) {
+            this.timer = setInterval(() =&gt; {
+                icon.className = PLAY_STATES[start1].icon;
+                label.innerHTML = PLAY_STATES[start1].label;
+                start1++;
+                if (start1 === PLAY_STATES.length) {
+                    start1 = 0;
+                }
+            }, COMPUTER_HAND_CHANGE_INTERVAL);
+        }
+        else {
+            this.timer = setInterval(() =&gt; {
+                icon.className = PLAY_STATES[start1].icon;
+                label.innerHTML = PLAY_STATES[start1].label;
+                start1++;
+                if (start1 === PLAY_STATES.length) {
+                    start1 = 0;
+                }
+                icon2.className = PLAY_STATES[start2].icon;
+                label2.innerHTML = PLAY_STATES[start2].label;
+                start2++;
+                if (start2 === PLAY_STATES.length) {
+                    start2 = 0;
+                }
+            }, COMPUTER_HAND_CHANGE_INTERVAL);
+            setTimeout(() =&gt; {
+                this.onChoice(PLAY_STATES[start2]);
+            }, SIMULATION_TIMEOUT);
+        }
+    }
+    /**
+     * Pauses the currently active timer and set the timer field to null.
+     */
+    _pause() {
+        clearInterval(this.timer);
+        this.timer = null;
+    }
+    /**
+     * Called on the second update onward, mainly used to resume the game timer after being paused for either game final result or round results.
+     *
+     * @param {GamePlayProps} prevProps previous component props.
+     * @param {GamePlayState} prevState previous component state.
+     */
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.playing &amp;&amp; this.state.playing !== prevState.playing) {
+            this._resume();
+        }
+        else {
+            this._pause();
+        }
+    }
+    /**
+     * Called when the user clicks on the Main Menu button.
+     */
+    onMainMenu() {
+        this._storeInstance.dispatch(ACTIONS.MAIN_MENU);
+    }
+    /**
+     * Renders the component.
+     */
+    render() {
+        let state = this.state, player1 = state.player1, player2 = state.player2, roundWinner = state.roundWinner, gameWinner = state.gameWinner, gameMode = state.gameMode, roundText = state.roundWinner === player2 ? "You win this round!" : (state.roundWinner === player1) ? "You lose this round!" : "Draw", computerBtn = (React.createElement("div", {className: "of-btn info", key: "computer-btn-2"}, React.createElement("i", {className: player1.state &amp;&amp; player1.state.icon, ref: "computerIcon2"}), React.createElement("span", {ref: "computerLabel2"}, player2.state &amp;&amp; player2.state.label))), btns = PLAY_STATES.map((e, i) =&gt; {
+            return (React.createElement(Button, {key: e.label, label: e.label, icon: e.icon, className: "info btn-item-" + i, onClick: this.onChoice, userData: e}));
+        });
+        return (React.createElement("div", {className: "window-screen", id: "GamePlayCtrl", key: "container-1x", "data-visible": this.state.visible}, React.createElement("div", {className: "screen-wrapper", key: "container-2x"}, React.createElement(Logo, {image: "/img/rock-paper-scissors-logo.png", className: "app-logo"}), React.createElement("div", {className: "game-title"}, player2.getLabel() + " vs " + player1.getLabel()), React.createElement("div", {className: "game-round-count"}, "Round ", state.round, " of ", state.maxRounds, " "), React.createElement("div", {className: "player-section player-1"}, React.createElement("h2", {className: "section-title"}, player1.getLabel()), React.createElement("div", {className: "of-btn"}, React.createElement("i", {className: player1.state &amp;&amp; player1.state.icon, ref: "computerIcon"}), React.createElement("span", {ref: "computerLabel"}, player1.state &amp;&amp; player1.state.label))), React.createElement("div", {className: player2.is(PLAYER_TYPE.USER) ? "player-section player-2" : "player-section player-2 computer"}, React.createElement("h2", {className: "section-title"}, player2.getLabel()), gameMode === GAME_MODES.PLAYER_VS_COMPUTER ? btns : computerBtn), React.createElement(Dialog, {visible: state.roundCardVisible, onClose: this.onNextRound}, React.createElement("h2", {className: "round-title"}, state.round, " of ", state.maxRounds), React.createElement("div", {className: "round-description", key: "round-hands"}, formatHandsText(player1, player2)), React.createElement("div", {className: "round-description", key: "round-result"}, formatRoundWinnerText(player1, player2)), React.createElement(Button, {onClick: this.onNextRound, label: "Next Round", className: "next-round-btn"})), React.createElement(Dialog, {visible: state.finishCardVisible, onClose: this.onRestart}, React.createElement("h2", {className: "round-title"}, state.round, " of ", state.maxRounds), React.createElement("div", {className: "round-description", key: "round-hands"}, formatHandsText(player1, player2)), React.createElement("div", {className: "round-description", key: "round-result-2"}, formatGameFinishText(player1, player2)), React.createElement(Button, {onClick: this.onRestart, label: "Play Again"}), React.createElement(Button, {onClick: this.onMainMenu, label: "Main Menu"})))));
+    }
+}
+//# sourceMappingURL=GamePlay.js.map</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 29 2016 18:25:55 GMT+0100 (BST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

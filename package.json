@@ -1,0 +1,74 @@
+{
+  "name": "rockpaper.dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd ./dist && python -m SimpleHTTPServer 8000",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suhdev/rock-paper-scissors.git"
+  },
+  "author": "Suhail Abood <suhail.abood@gmail.com> (suhailabood.me)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suhdev/rock-paper-scissors/issues"
+  },
+  "homepage": "https://github.com/suhdev/rock-paper-scissors#readme",
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-jest": "^9.0.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "jest-cli": "*",
+    "jspm": "0.16.34",
+    "react-addons-test-utils": "^15.1.0",
+    "tslint": "^3.10.2",
+    "typescript": "^1.8.10"
+  },
+  "jspm": {
+    "dependencies": {
+      "bluebird": "npm:bluebird@^3.4.0",
+      "immutable": "npm:immutable@^3.8.1",
+      "react": "npm:react@^15.1.0",
+      "react-dom": "npm:react-dom@^15.1.0",
+      "strikejs": "npm:strikejs@^0.2.21"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.9.0",
+    "bluebird": "^3.4.0",
+    "expect": "^1.20.1",
+    "immutable": "^3.8.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "strikejs": "^0.2.22"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react/",
+      "<rootDir>/node_modules/react-dom/",
+      "<rootDir>/node_modules/immutable/",
+      "<rootDir>/node_modules/strikejs/",
+      "<rootDir>/jspm_packages/npm/strikejs@0.2.21/",
+      "<rootDir>/es6/constants",
+      "<rootDir>/es6/services/GameController",
+      "<rootDir>/es6/controllers/App/Actions",
+      "<rootDir>/es6/controllers/App/StateAndProps",
+      "<rootDir>/es6/controllers/GamePlay/Actions",
+      "<rootDir>/es6/controllers/GamePlay/StateAndProps",
+      "<rootDir>/es6/controllers/SplashScreen/Actions",
+      "<rootDir>/es6/controllers/SplashScreen/StateAndProps",
+      "<rootDir>/node_modules/react-addons-test-utils/"
+    ]
+  }
+}

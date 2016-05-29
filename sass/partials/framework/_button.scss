@@ -1,0 +1,184 @@
+$button-default-font-size:$base-font-size !default;
+$button-default-font-family:$base-font-family !default;
+$button-default-padding:$base-control-padding !default;
+$button-default-height:$base-control-height !default;
+$button-default-bg:$base-color-primary;
+$button-default-fg:white;
+$button-circle-bg:blue !default;
+%button{
+	@extend %box;
+	@extend %no-text-select;
+	cursor:pointer;
+	direction:inherit;
+	display:inline-block;
+	font-family:inherit;
+}
+
+.of-visual-btn{
+	position:relative;
+	@extend %button;
+	font-size:$button-default-font-size;
+	// font-family:$button-default-font-family;
+	height:$button-default-height;
+	line-height:$button-default-height;
+	padding:10px 0px;
+	background:$button-default-bg;
+	color:$button-default-fg;
+
+	width:130px;
+	height:120px;
+	margin:0px 6px;
+	background-color: #ddd; 
+	color:$color-1;
+	vertical-align:middle;
+	margin:5px;
+	text-align:center;
+	
+	
+	
+	.of-icon{
+		font-size:64px;
+	}
+
+	.of-label{
+		text-align:center;
+		line-height: 1.3em;
+	}
+	
+	&:hover,&.selected{
+		border:2px solid rgba(0,0,0,0.5);
+	}
+}
+
+.of-btn{
+	position:relative;
+	@extend %button;
+	font-size:$button-default-font-size;
+	// font-family:$button-default-font-family;
+	height:$button-default-height;
+	line-height:$button-default-height;
+	padding:$button-default-padding;
+	background:$button-default-bg;
+	color:$button-default-fg;
+	-webkit-transition: all 0.5s cubic-bezier(0,0,0,1);
+	-o-transition: all 0.5s cubic-bezier(0,0,0,1);
+	transition: all 0.5s cubic-bezier(0,0,0,1);
+
+
+
+	& > .of-menu{
+		@extend %box;
+		display:none;
+		position:absolute;
+		top:100%;
+		left:0px;
+		width:100%;
+		border:1px solid #eee;
+		line-height:$base-control-height;
+		min-height:$base-control-height*2;
+		background-color: #eee;
+
+		z-index:20;
+
+		& > .of-menu-item{
+			@extend %box;
+			// height:$base-control-height;
+			color:black;
+			width:100%;
+			padding:0px 5px;
+			margin-top:1px;
+			text-align:left;
+			background-color: #fff;
+
+		}
+
+		&.active{
+			display:block;
+		}
+	}
+
+
+
+	&.ltr, .ltr &{
+		& > .of-menu > .of-menu-item{
+			text-align:left;
+		}
+	}
+
+	&.rtl, .rtl &{
+		& > .of-menu > .of-menu-item{
+			text-align:right;
+		}
+	}
+
+	&:hover{
+		background:lighten($button-default-bg,15%);
+	}
+
+	&:active,&.active{
+		background:darken($button-default-bg,10%);
+	}
+
+
+	@each $type in $control-types {
+		$idx:index($control-types, $type);
+		&.#{$type} {
+			background:nth($control-colors, $idx);
+
+			&:hover{
+				background:lighten(nth($control-colors, $idx),15%);
+			}
+
+			&:active,&.active{
+				background:darken(nth($control-colors, $idx),10%);
+			}
+		}
+	}
+
+	@each $type in $control-size-types {
+		$idx:index($control-size-types, $type);
+		&.#{$type}{
+			font-size:nth($control-sizes, $idx);
+		}
+	}
+
+}
+
+
+.of-btn-circle{
+	@extend %box;
+	display:inline-block;
+	height:$base-control-height;
+	width:$base-control-height;
+	line-height:$base-control-height;
+	color:#fff;
+	background-color: $button-circle-bg;
+	cursor:pointer;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	margin-left:5px;
+	text-align:center;
+	-webkit-transition: all 0.5s cubic-bezier(0,0,0,1);
+	-o-transition: all 0.5s cubic-bezier(0,0,0,1);
+	transition: all 0.5s cubic-bezier(0,0,0,1);
+
+	&:hover{
+		background-color: lighten($button-circle-bg,8%);
+		color:white;
+	}
+
+	&:active{
+		background-color: darken($button-circle-bg,10%);
+		color:white;
+	}
+
+	&:visited{
+		color:white;
+	}
+}

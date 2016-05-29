@@ -1,0 +1,130 @@
+.of-dialog{
+	position:absolute;
+	display:none;
+	left:0px;
+	top:0px;
+	height:100%;
+	width:100%;
+	z-index:900;
+	&[data-visible="true"]{
+		display:block;
+	}
+
+	.of-backdrop{
+		position:fixed;
+		left:0px;
+		top:0px;
+		height:100%;
+		width:100%;
+		background-color:rgba(0,0,0,0.5);
+		z-index:300;
+	}
+
+	.of-dialog-container{
+		@extend %box;
+		position:absolute;
+		top:0px;
+		left:0px;
+		height:100%;
+		width:100%;
+	}
+
+	.of-content-container{
+		@extend %box;
+		position:absolute;
+		left:0px;
+		top:0px;
+		height:100%;
+		width:100%;
+		line-height:20px;
+		font-size:14px;
+		z-index:310;
+		overflow:auto;
+		color:$color-1;
+		background-color: white;
+		padding:40px 10px;
+		
+	}
+
+	&.tasting-dialog{
+		.of-content-container{
+			padding:0px
+		}
+		.tasting-title{
+			margin:0px;
+		}
+		.tasting-content .tasting-table-container{
+			margin-left:0px;
+			margin-right:0px;
+		}
+	}
+
+
+
+	.of-close-button{
+		@extend %box;
+		position:absolute;
+		right:0px;
+		top:0px;
+		
+		height:32px;
+		width:32px;
+		font-size:42px;
+		cursor:pointer;
+		line-height:32px;
+		z-index:322;
+		overflow:hidden;
+		i{
+			line-height:32px;
+		}
+
+		img{
+			width:100%;
+		}
+	}
+
+	@include XSmallDevice(){
+		.of-dialog-container{
+			height:300px;
+			top:50%;
+			margin-top:-150px;
+			width:400px;
+			left:50%;
+			margin-left:-200px;
+
+		}
+
+		&.embed-dialog{
+			.of-dialog-container{
+				height:330px;
+				margin-top:-165px;
+			}
+		}
+
+		.of-close-button{
+			right:-16px;
+			top:-16px;
+		}
+
+		.of-content-container{
+			padding:40px 30px;
+		}
+
+		&.tasting-dialog{
+			.of-content-container{
+				padding:0px;
+			}
+
+			.tasting-title{
+				margin:0px;
+			}
+			.tasting-content .tasting-table-container{
+				margin:0px;
+			}
+		}
+	}
+
+	@include SmallDevice(){
+		
+	}
+}

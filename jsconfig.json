@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "rootDir": "./__tests__",
+        "target": "es6",
+        "module": "es6",
+        "jsx": "react"
+    },
+    "exclude": [
+        "node_modules",
+        "jspm_packages"
+    ]
+}

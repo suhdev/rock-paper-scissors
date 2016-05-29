@@ -1,0 +1,41 @@
+@import "base";
+@import "icons";
+
+html *,body *{
+	@extend %box;
+}
+
+
+.time-picker-bar.fixed{
+	position:fixed;
+	width:100%;
+	left:0px;
+	top:42px;
+	z-index:345;
+}
+
+.term-selector.fixed{
+	margin-top:88px;
+}
+
+.search-screen.fixed{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	z-index:333;
+}
+
+@include SmallDevice(){
+
+
+.time-picker-bar.fixed{
+	top:66px;
+	z-index:345;
+}
+
+.term-selector.fixed{
+	margin-top:108px;
+}
+
+}

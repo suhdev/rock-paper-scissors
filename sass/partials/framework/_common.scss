@@ -1,0 +1,81 @@
+$base-font-size:16px !default;
+$base-font-family:sans-serif !default;
+$base-font-rtl:'Droid Arabic Kufi', sans-serif !default;
+$base-font-ltr:$base-font-family !default;
+$base-color-primary:#225599 !default;
+$base-color-danger:#FF5522 !default;
+$base-color-success:#44CC66 !default;
+$base-color-info:#FF9933 !default;
+$base-control-font-size:$base-font-size !default;
+$base-font-size-xs:8px !default;
+$base-font-size-sm:10px !default;
+$base-font-size-md:$base-font-size !default;
+$base-font-size-lg:18px !default;
+$base-control-height:2.6em !default;
+$base-control-padding:0px 0.6em !default;
+$base-document-direction:ltr !default;
+$control-types:primary danger success info !default;
+$control-colors:$base-color-primary $base-color-danger $base-color-success $base-color-info !default;
+$control-size-types:xs sm md lg !default;
+$control-sizes:$base-font-size-xs $base-font-size-sm $base-font-size-md $base-font-size-lg !default;
+$screen-size-types:xs sm md lg !default;
+$screen-size-xsmall:560px !default;
+$screen-size-small:700px !default;
+$screen-size-medium:980px !default;
+$screen-size-large:1100px !default;
+$screen-sizes:$screen-size-xsmall $screen-size-small $screen-size-medium $screen-size-large !default;
+$of-box-container-separation:10px !default;
+
+%box{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+%no-text-select{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+%full-line,.full-line{
+	display:block;
+	width:100%;
+}
+
+%clearfix,.clearfix{
+	&:after,&:before{
+		content:' ';
+		display:table;
+		clear:both;
+	}
+}
+html,body{
+	font-family:$base-font-ltr;
+	direction:ltr;
+	margin:0px;
+	padding:0px;
+	*{
+		direction:inherit;
+	}
+	&.ltr,.ltr{
+		font-family:$base-font-ltr;
+
+	}
+	&.rtl,.rtl{
+		font-family:$base-font-rtl;
+		direction:rtl;
+	}
+}
+
+
+.of-box-container{
+	padding-top:$of-box-container-separation/2;
+	padding-bottom:$of-box-container-separation/2;
+}
+
+.of-clickable,%clickable{
+	cursor:pointer;
+}

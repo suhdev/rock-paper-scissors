@@ -1,0 +1,66 @@
+$control-default-line-height:$base-control-height;
+$control-default-height:$base-control-height;
+$control-default-font-size:$base-font-size;
+$control-default-padding:$base-control-padding;
+$control-default-border-color:$base-color-primary;
+
+%control{
+	@extend %box;
+	outline:none;
+	font-family:inherit;
+	border:none;
+
+}
+.of-control{
+    @extend %control;
+	position:relative;
+    line-height:$control-default-height;
+	// height:$control-default-height;
+    font-size:$control-default-font-size;
+    padding:$control-default-padding;
+    border:1px solid lighten($control-default-border-color,20%);
+
+    @each $type in $control-types {
+        &.#{$type} {
+            $idx:index($control-types, $type);
+            border:1px solid lighten(nth($control-colors,$idx),20%);
+        }
+    }
+
+    @each $size in $control-size-types {
+        &.#{$size}{
+            $idx:index($control-size-types, $size);
+            font-size:nth($control-sizes, $idx);
+        }
+    }
+
+    &[class*="col-"]{
+        padding:0px $grid-gutter/2;
+    }
+
+
+	&.left{
+		& > .of-wrapper{
+			padding-left:$base-control-height;
+		}
+	}
+
+	&.right{
+		& > .of-wrapper{
+			padding-right:$base-control-height;
+		}
+	}
+
+	.of-wrapper{
+		margin-left:-($grid-gutter/2);
+		margin-right:-($grid-gutter/2);
+	}
+
+	&.no-border{
+		border:none;
+	}
+
+	& + .of-control{
+		margin-top:2px;
+	}
+}

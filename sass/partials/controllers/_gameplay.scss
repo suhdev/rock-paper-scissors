@@ -1,0 +1,117 @@
+#GamePlayCtrl{
+    &[data-visible="true"]{
+        display:block;
+    }
+    
+    .game-title{
+        font-family:$font-2;
+        font-size:26px;
+        text-align:center;
+        width:180px;
+        position:absolute;
+        top:10px;
+        left:0px;
+        
+        color:$color-2;
+    }
+    
+    .app-logo{
+        position:absolute;
+        top:10px;
+        left:10px;
+        width:150px;
+        img{
+            width:100%;
+        }
+    }
+    
+    .game-round-count{
+        position:absolute;
+        font-size:20px;
+        font-family:$font-2;
+        text-align: right;
+        width:120px;
+        top:10px;
+        right:10px;
+        color:$color-3; 
+    }
+    
+    .round-title{
+        font-family:$font-2;
+        font-size:50px;
+        text-align: center;
+        line-height:1.4em;
+    }
+    
+    .round-description{
+        font-size:20px;
+        text-align: center;
+        padding:20px 0px;
+        line-height: 1.4em;
+    }
+    
+    
+    .of-dialog{
+        .of-btn{
+            display:block;
+            width:140px;
+            margin:0px auto;
+            font-family: $font-2;
+            font-size:20px;
+            text-align: center;
+            margin-bottom:4px;
+        }
+    }
+    
+    .player-section{
+        text-align: center;
+        font-family: $font-2;
+        position:absolute;
+        width:120px;
+        top:60px;
+        
+        .section-title{
+            font-size:28px;
+            line-height: 1.4em;
+        }
+        &.player-1{
+            left:0px; 
+        }
+        &.player-1,
+        &.player-2.computer{
+            top:50%;
+            margin-top:-62px;
+        }
+        &.player-2{
+            right:0px;
+        }
+        .of-btn{
+            font-size:24px;
+            margin:4px 0px;
+            width:120px;
+            height:100px;
+            line-height: 52px;
+            i{
+                font-size:40px;
+                line-height: 62px;
+                height:52px;
+            }
+            span{
+                display:block;
+                line-height:22px;
+            }
+        }
+    }
+    
+    @include SmallDevice(){
+        .game-title{
+            font-size:30px;
+              
+            left:50%;
+            margin-left:-90px; 
+        }
+        .game-round-count{
+            font-size:26px;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+$of-well-padding:1.5em;
+.of-well{
+    @extend %box;
+    padding:$of-well-padding;
+
+    @each $size in $control-size-types {
+        &.#{$size}{
+            $idx:index($control-size-types, $size);
+            padding:nth($control-sizes, $idx);
+        }
+    }
+}

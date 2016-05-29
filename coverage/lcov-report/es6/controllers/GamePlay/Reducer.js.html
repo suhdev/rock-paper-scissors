@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for es6/controllers/GamePlay/Reducer.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">es6/controllers/GamePlay/</a> Reducer.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>49/49</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>23/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>44/44</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { START_MASK, SPLASH_START, GAME_START, GAME_MODES } from '../../constants';
+import { TYPES as SPLASH_TYPES } from '../SplashScreen/Actions';
+import { ComputerPlayer, UserPlayer } from '../../services/GameController';
+import { TYPES } from './Actions';
+export function Reducer(state, action) {
+    let newState = state;
+    let v = action.type &amp; START_MASK;
+    if (v === SPLASH_START ||
+        v === GAME_START) {
+        switch (action.type) {
+            case TYPES.RESTART:
+                newState = newState.withMutations((m) =&gt; {
+                    let player1 = m.get('player1'), player2 = m.get('player2');
+                    player1.setScore(0);
+                    player2.setScore(0);
+                    player1.state = null;
+                    player2.state = null;
+                    m.set('playing', true)
+                        .set('round', 1)
+                        .set('finishCardVisible', false)
+                        .set('roundCardVisible', false);
+                });
+                break;
+            case SPLASH_TYPES.START:
+                newState = newState.withMutations((m) =&gt; {
+                    let isSimulated = action.data === GAME_MODES.COMPUTER_VS_COMPUTER, player1 = new ComputerPlayer(isSimulated ? "Computer 1" : "Computer"), player2 = isSimulated ? new ComputerPlayer("Computer 2") : new UserPlayer("You");
+                    m.set('visible', true)
+                        .set('round', 1)
+                        .set('gameMode', action.data)
+                        .set('playing', true)
+                        .set('player1', player1)
+                        .set('player2', player2);
+                });
+                break;
+            case TYPES.CHOICE:
+                newState = newState.withMutations((m) =&gt; {
+                    let player1 = m.get('player1'), player2 = m.get('player2'), round = m.get('round'), maxRounds = m.get('maxRounds'), gameWinner = null, winner, play = player1.play();
+                    player2.state = action.data;
+                    if ((action.data.beats &amp; play.value) &gt; 0) {
+                        winner = player2;
+                        player2.addPoints(1);
+                    }
+                    else if ((play.beats &amp; action.data.value) &gt; 0) {
+                        winner = player1;
+                        player1.addPoints(1);
+                    }
+                    if (player1._score &gt; player2._score) {
+                        gameWinner = player1;
+                    }
+                    else if (player1._score &lt; player2._score) {
+                        gameWinner = player2;
+                    }
+                    if (round === maxRounds) {
+                        m.set('finishCardVisible', true);
+                    }
+                    else {
+                        m.set('roundCardVisible', true);
+                    }
+                    m.set('roundWinner', winner)
+                        .set('playing', false)
+                        .set('gameWinner', gameWinner);
+                });
+                break;
+            case TYPES.NEXT_ROUND:
+                newState = newState.withMutations((m) =&gt; {
+                    let round = m.get('round'), maxRounds = m.get('maxRounds');
+                    m.set('roundCardVisible', false)
+                        .set('round', ++round)
+                        .set('playing', true);
+                });
+                break;
+            // case TYPES.FINISH:
+            // newState = newState.withMutations((m)=&gt;{
+            //     let player1 = m.get('player1'),
+            //         player2 = m.get('player2'); 
+            //     player1.setScore(0);
+            //     player2.setScore(0); 
+            //     m.set('round',1)
+            //      .set('finishCardVisible',false)
+            //      .set('roundWinner',null)
+            //      .set('gameWinner',null);
+            // });
+            // break;
+            case TYPES.MAIN_MENU:
+                newState = newState.withMutations((m) =&gt; {
+                    m.set('playing', false)
+                        .set('visible', false)
+                        .set('roundCardVisible', false)
+                        .set('finishCardVisible', false);
+                });
+                break;
+        }
+    }
+    return newState;
+}
+//# sourceMappingURL=Reducer.js.map</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 29 2016 18:25:55 GMT+0100 (BST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+a,a:visited,a:hover,a:active{
+    text-decoration:none;
+    color:inherit;
+}
+
+$text-transforms:uppercase lowercase capitalize;
+$text-aligns:left right center justify;
+$text-decorations:line-through overline underline;
+$text-weight:bold 100 200 300 400 500 600 700 800 900;
+
+@each $transform in $text-transforms {
+	.text-#{$transform} {
+		text-transform:$transform;
+	}
+}
+
+@each $align in $text-aligns {
+	.text-#{$align}{
+		text-align:$align !important;
+	}
+}
+
+@each $d in $text-decorations {
+	.text-#{$d}{
+		text-decoration:$d;
+	}
+}
+
+@each $w in $text-weight {
+    .text-#{$w}{
+        font-weight:$w;
+    }
+}
+
+@each $size in $control-size-types {
+    .text-#{$size}{
+        $idx:index($control-size-types, $size);
+        font-size:nth($control-sizes, $idx);
+    }
+}
+
+%no-text-select,.no-text-select{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.info-link,.info-link:visited,.info-link:hover{
+	color:$color-1;
+	text-decoration:underline;
+	display:block;
+}
+

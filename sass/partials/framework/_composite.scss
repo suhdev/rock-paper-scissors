@@ -1,0 +1,72 @@
+$of-composite-control-border-color:#33CE32;
+$of-composite-control-label-bg-color:#eee;
+.of-composite-control{
+    @extend %clearfix;
+    & > .of-label{
+        @extend %box;
+        display:block;
+        float:left;
+        font-weight:bold;
+        background-color: $of-composite-control-label-bg-color;
+        padding:0px 5px;
+        line-height:$base-control-height;
+        height:$base-control-height;
+        span{
+            font-size:0.8em;
+        }
+    }
+
+    & > .of-text-field,
+    & > .of-control,
+    & > .of-textarea
+    {
+        float:left;
+        display:block;
+        border:1px solid $of-composite-control-label-bg-color;
+        &:focus{
+            border-bottom:1px solid lighten($of-composite-control-border-color,20%);
+        }
+
+    }
+
+    .rtl &, &.rtl{
+        & > .of-label,
+        & > .of-text-field,
+        & > .of-textarea,
+        & >.of-control{
+            float:right;
+        }
+
+    }
+
+    & + &,
+    & + .of-btn,
+    & + .of-text-field,
+    & + .of-textarea,
+    & + .of-control,
+    & + .of-textarea,
+    .of-text-field + &,
+    .of-text-field + .of-text-field,
+    .of-text-field + .of-textarea,
+    .of-text-field + .of-btn,
+    .of-text-field + .of-control,
+    .of-control + &,
+    .of-control + .of-control,
+    .of-control + .of-btn,
+    .of-control + .of-textarea,
+    .of-control + .of-text-field,
+    .of-btn + &,
+    .of-btn + of-btn,
+    .of-btn + .of-control,
+    .of-btn + .of-text-field,
+    .of-btn + .of-textarea,
+    .of-textarea + &,
+    .of-textarea + .of-textarea,
+    .of-textarea + .of-text-field,
+    .of-textarea + .of-btn,
+    .of-textarea + .of-control
+    {
+        margin-top:5px;
+    }
+
+}
