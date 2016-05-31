@@ -1,7 +1,7 @@
 #Rock Paper Scissors 
 
 Please read the document thoroughly, in case there are any questions regarding anything included in this repository please contact me on [suhail.abood@gmail.com]. 
-
+You can access the live demo on [https://project-8270900878741530744.firebaseapp.com/].  
 
 ##How to use this code
 * To run local server use the following commands [the installation steps are only required if there is a need to recompile the code]. Internally, the script will run python -m SimpleHTTPServer on the "dist" directory.  
@@ -90,7 +90,8 @@ Disclaimer: all the code in this repository is my own code. For the implementati
 4. I've used ReactJS over other frameworks mainly because of the ability to force one's mind to think of the view as a function of the application state. 
 5. I've used StrikeJS [my implementation of the redux architecture], mainly because it keeps the application state in a single store which makes it easier to think about. It also helps in application debugging as the whole state of the application can be dumped at any given instant. 
 6. Facebook's Immutable library has been used for performance reasons. It helps in replacing deep object comparisons to a single '===' comparison.  
-7. PLEASE: regardless of the outcomes of the review, I would really appreciate any comments that can help improve my workflow, my code, or anything I've done here. 
+7. I've used the new Firebase hosting service to host the demonstration.  
+8. PLEASE: regardless of the outcomes of the review, I would really appreciate any comments that can help improve my workflow, my code, or anything I've done here. 
 
 
 ##Resources
@@ -100,5 +101,6 @@ Disclaimer: all the code in this repository is my own code. For the implementati
 4. http://jasmine.github.io/2.4/introduction.html
 5. http://www.typescriptlang.org/
 6. https://github.com/DefinitelyTyped/tsd 
-7. https://github.com/suhdev/strike [I still need to document this library.]
-8. https://github.com/suhdev/oasis-framework [A CSS framework that I've built.]  
+7. https://www.firebase.com/docs/web/  
+8. https://github.com/suhdev/strike [I still need to document this library.]
+9. https://github.com/suhdev/oasis-framework [A CSS framework that I've built.]  
