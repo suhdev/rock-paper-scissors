@@ -100,5 +100,5 @@ Disclaimer: all the code in this repository is my own code. For the implementati
 4. http://jasmine.github.io/2.4/introduction.html
 5. http://www.typescriptlang.org/
 6. https://github.com/DefinitelyTyped/tsd 
-7. https://github.com/suhdev/strike [This is still missing documentation, I still need to properly document this library.]
+7. https://github.com/suhdev/strike [I still need to document this library.]
 8. https://github.com/suhdev/oasis-framework [A CSS framework that I've built.]  
