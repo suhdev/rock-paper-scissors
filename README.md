@@ -91,8 +91,6 @@ Disclaimer: all the code in this repository is my own code. For the implementati
 5. I've used StrikeJS [my implementation of the redux architecture], mainly because it keeps the application state in a single store which makes it easier to think about. It also helps in application debugging as the whole state of the application can be dumped at any given instant. 
 6. Facebook's Immutable library has been used for performance reasons. It helps in replacing deep object comparisons to a single '===' comparison.  
 7. I've used the new Firebase hosting service to host the demonstration.  
-8. PLEASE: regardless of the outcomes of the review, I would really appreciate any comments that can help improve my workflow, my code, or anything I've done here. 
-
 
 ##Resources
 1. https://facebook.github.io/react/
