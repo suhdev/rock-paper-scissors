@@ -80,9 +80,8 @@ Disclaimer: all the code in this repository is my own code. For the implementati
 
 ##Notes
 1. I've set the game rounds to 3 just to make it more interesting, however the maximum no. of rounds is configurable and can be set to 1.  
-2. Due to being involved in some other work, I was unable to allocate more time to the assignment, and hence there are things that can be improved. Including:
+2. Areas of improvements:
     * Adding tooltips to the buttons on the Game play to provide better visual feedback for users. This can be implemented using CSS3 tooltips i.e. hover state nesting.  
-    * Adding backgrounds to the different game play screens, again this would give better user experience, and due to time limitations I'm unable to invest further time on this. 
     * Adding user-login system [perhaps backed by the new firebase authentication service] to track users and scores. 
     * Adding a leaderboard of the game's luckiest player [again this depends on the ability to track users]. 
     * Adding share buttons to share one's score. 
